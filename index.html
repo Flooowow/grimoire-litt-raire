@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Grimoire Littéraire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="particlesCanvas"></canvas>
+    
+    <div class="plants-decoration">
+        <div class="plant plant-left"></div>
+        <div class="plant plant-right"></div>
+        <div class="plant plant-corner"></div>
+    </div>
+
+    <header>
+        <h1>Le Grimoire Littéraire</h1>
+        <div class="header-controls">
+            <button id="exportBtn" class="header-btn">📤 Exporter</button>
+            <button id="importBtn" class="header-btn">📥 Importer</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
+    </header>
+
+    <main class="library-container">
+        <div class="shelf" data-level="6eme">
+            <div class="shelf-label">6ème</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+
+        <div class="shelf" data-level="5eme">
+            <div class="shelf-label">5ème</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+
+        <div class="shelf" data-level="4eme">
+            <div class="shelf-label">4ème</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+
+        <div class="shelf" data-level="3eme">
+            <div class="shelf-label">3ème</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+
+        <div class="shelf" data-level="2nde">
+            <div class="shelf-label">2nde</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+
+        <div class="shelf" data-level="1ere">
+            <div class="shelf-label">1ère</div>
+            <button class="add-book-btn">+</button>
+            <div class="books-container"></div>
+            <div class="shelf-wood"></div>
+        </div>
+    </main>
+
+    <!-- Modal d'ajout/édition de livre -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Ajouter un livre</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Titre du livre</label>
+                    <input type="text" id="bookTitle" placeholder="Ex: Rimbaud">
+                </div>
+
+                <div class="form-group">
+                    <label>Style du livre</label>
+                    <div class="book-styles">
+                        <div class="style-option" data-style="fleurs-dorees">
+                            <div class="style-preview fleurs-dorees"></div>
+                            <span>Fleurs dorées</span>
+                        </div>
+                        <div class="style-option" data-style="dorures-elegantes">
+                            <div class="style-preview dorures-elegantes"></div>
+                            <span>Dorures élégantes</span>
+                        </div>
+                        <div class="style-option" data-style="arabesque">
+                            <div class="style-preview arabesque"></div>
+                            <span>Arabesque</span>
+                        </div>
+                        <div class="style-option" data-style="geometrique">
+                            <div class="style-preview geometrique"></div>
+                            <span>Géométrique</span>
+                        </div>
+                        <div class="style-option" data-style="classique">
+                            <div class="style-preview classique"></div>
+                            <span>Classique</span>
+                        </div>
+                        <div class="style-option" data-style="botanique">
+                            <div class="style-preview botanique"></div>
+                            <span>Jardin botanique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Couleur principale</label>
+                    <div class="color-picker">
+                        <button class="color-btn" data-color="#8B4513" style="background: #8B4513;"></button>
+                        <button class="color-btn" data-color="#2F4F2F" style="background: #2F4F2F;"></button>
+                        <button class="color-btn" data-color="#8B0000" style="background: #8B0000;"></button>
+                        <button class="color-btn" data-color="#191970" style="background: #191970;"></button>
+                        <button class="color-btn" data-color="#556B2F" style="background: #556B2F;"></button>
+                        <button class="color-btn" data-color="#4B0082" style="background: #4B0082;"></button>
+                        <button class="color-btn" data-color="#800020" style="background: #800020;"></button>
+                        <button class="color-btn" data-color="#1C1C1C" style="background: #1C1C1C;"></button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Contenu de la fiche</label>
+                    <textarea id="bookContent" rows="12" placeholder="Ex:
+Arthur Rimbaud (1854-1891)
+
+SYNTHÈSE
+Poète précoce et visionnaire, Rimbaud révolutionne la poésie française...
+
+ŒUVRES MAJEURES
+- Le Bateau ivre (1871)
+- Une Saison en enfer (1873)
+- Illuminations (1872-1875)
+
+THÈMES
+- La révolte et la transgression
+- Le voyant et la vision poétique
+- L'enfance et l'innocence perdue
+
+CITATIONS
+'Je est un autre'
+'Il faut être absolument moderne'"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="btn-secondary">Annuler</button>
+                <button id="saveBookBtn" class="btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de lecture/édition de fiche -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content card-view">
+            <div class="modal-header">
+                <h2 id="cardTitle"></h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cardContent" class="card-content"></div>
+                <textarea id="cardContentEdit" class="card-content-edit" style="display: none;"></textarea>
+            </div>
+            <div class="modal-footer toolbar">
+                <button id="modifyBtn" class="toolbar-btn">✏️ Modifier</button>
+                <button id="aspectBtn" class="toolbar-btn">🎨 Aspect</button>
+                <button id="deleteBtn" class="toolbar-btn delete">🗑️ Supprimer</button>
+                <div class="edit-actions" style="display: none;">
+                    <button id="cancelEditBtn" class="btn-secondary">Annuler</button>
+                    <button id="saveEditBtn" class="btn-primary">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
