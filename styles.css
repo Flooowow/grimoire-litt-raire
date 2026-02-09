@@ -6,7 +6,10 @@
 
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 50%, #1a3a1a 100%);
+    background: 
+        radial-gradient(ellipse at top, rgba(0, 139, 139, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(218, 165, 32, 0.1) 0%, transparent 60%),
+        linear-gradient(135deg, #1a1a1a 0%, #2a1810 30%, #1a1a1a 60%, #0f1a0f 100%);
     background-attachment: fixed;
     color: #f5f5dc;
     min-height: 100vh;
@@ -14,7 +17,7 @@ body {
     position: relative;
 }
 
-/* Arabesque background pattern */
+/* Effet vitrail lumineux en arrière-plan */
 body::before {
     content: '';
     position: fixed;
@@ -23,12 +26,19 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(218, 165, 32, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.03) 0%, transparent 50%);
-    background-size: 600px 600px;
+        radial-gradient(circle at 30% 20%, rgba(0, 191, 165, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 70% 40%, rgba(255, 140, 0, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 50% 60%, rgba(218, 165, 32, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(64, 224, 208, 0.07) 0%, transparent 40%);
+    background-size: 800px 800px, 600px 600px, 700px 700px, 500px 500px;
+    animation: vitrailGlow 20s ease-in-out infinite;
     pointer-events: none;
-    opacity: 0.6;
     z-index: 0;
+}
+
+@keyframes vitrailGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.9; }
 }
 
 /* Canvas pour particules */
@@ -42,7 +52,7 @@ body::before {
     z-index: 1;
 }
 
-/* Plantes décoratives */
+/* Plantes décoratives Art Nouveau */
 .plants-decoration {
     position: fixed;
     width: 100%;
@@ -55,151 +65,320 @@ body::before {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.4;
-    animation: gentleSway 6s ease-in-out infinite;
+    opacity: 0.5;
+    filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
+    animation: gentleSway 8s ease-in-out infinite;
 }
 
 .plant-left {
-    width: 250px;
-    height: 350px;
-    left: -20px;
-    top: 20%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><path d="M100 300 Q80 250 70 200 Q60 150 80 100 Q90 70 85 40 Q83 20 90 10" fill="none" stroke="%23355e35" stroke-width="3"/><ellipse cx="65" cy="180" rx="25" ry="35" fill="%23457a45" opacity="0.7"/><ellipse cx="95" cy="150" rx="20" ry="30" fill="%234a7f4a" opacity="0.7"/><ellipse cx="75" cy="120" rx="22" ry="32" fill="%23457a45" opacity="0.7"/><ellipse cx="90" cy="80" rx="18" ry="28" fill="%234a7f4a" opacity="0.7"/><ellipse cx="85" cy="45" rx="15" ry="25" fill="%23457a45" opacity="0.7"/></svg>');
+    width: 320px;
+    height: 450px;
+    left: -30px;
+    top: 15%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300bf9f;stop-opacity:0.8"/><stop offset="100%25" style="stop-color:%23008b6b;stop-opacity:0.9"/></linearGradient></defs><path d="M100 300 Q75 240 65 180 Q55 120 75 70 Q85 40 80 15" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M65 180 Q40 170 30 160 Q20 150 35 140 Q50 135 65 145" fill="url(%23leaf1)"/><path d="M75 140 Q100 135 115 130 Q125 125 115 115 Q105 110 85 120" fill="url(%23leaf1)"/><path d="M75 100 Q50 95 35 85 Q25 75 40 70 Q55 70 70 80" fill="url(%23leaf1)"/><path d="M85 60 Q105 55 120 48 Q130 42 120 35 Q110 32 90 42" fill="url(%23leaf1)"/></svg>');
     animation-delay: 0s;
 }
 
 .plant-right {
-    width: 200px;
-    height: 320px;
-    right: 10px;
-    top: 35%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><path d="M100 300 Q120 250 125 200 Q130 150 115 100 Q105 70 112 40 Q115 20 108 10" fill="none" stroke="%23355e35" stroke-width="3"/><ellipse cx="130" cy="190" rx="28" ry="38" fill="%234a7f4a" opacity="0.7"/><ellipse cx="105" cy="160" rx="23" ry="33" fill="%23457a45" opacity="0.7"/><ellipse cx="120" cy="125" rx="25" ry="35" fill="%234a7f4a" opacity="0.7"/><ellipse cx="110" cy="85" rx="20" ry="30" fill="%23457a45" opacity="0.7"/><ellipse cx="112" cy="50" rx="17" ry="27" fill="%234a7f4a" opacity="0.7"/></svg>');
-    animation-delay: 2s;
+    width: 280px;
+    height: 420px;
+    right: -10px;
+    top: 30%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf2" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2340e0d0;stop-opacity:0.7"/><stop offset="100%25" style="stop-color:%23008b7a;stop-opacity:0.85"/></linearGradient></defs><path d="M100 300 Q115 235 120 170 Q125 110 110 60 Q100 30 105 10" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M120 170 Q145 162 160 155 Q170 148 160 138 Q150 133 125 145" fill="url(%23leaf2)"/><path d="M110 125 Q85 118 70 110 Q60 102 70 93 Q80 90 100 100" fill="url(%23leaf2)"/><path d="M110 80 Q135 72 150 65 Q160 58 150 50 Q140 47 115 58" fill="url(%23leaf2)"/></svg>');
+    animation-delay: 2.5s;
 }
 
 .plant-corner {
-    width: 180px;
-    height: 280px;
-    left: 50px;
-    bottom: 10%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><path d="M100 300 Q95 250 90 200 Q85 150 95 100 Q100 70 98 40 Q97 20 100 10" fill="none" stroke="%23355e35" stroke-width="3"/><ellipse cx="85" cy="185" rx="24" ry="34" fill="%23457a45" opacity="0.7"/><ellipse cx="100" cy="155" rx="21" ry="31" fill="%234a7f4a" opacity="0.7"/><ellipse cx="92" cy="122" rx="23" ry="33" fill="%23457a45" opacity="0.7"/><ellipse cx="99" cy="82" rx="19" ry="29" fill="%234a7f4a" opacity="0.7"/><ellipse cx="98" cy="47" rx="16" ry="26" fill="%23457a45" opacity="0.7"/></svg>');
-    animation-delay: 4s;
+    width: 260px;
+    height: 380px;
+    left: 40px;
+    bottom: 8%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf3" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23daa520;stop-opacity:0.6"/><stop offset="100%25" style="stop-color:%23b8860b;stop-opacity:0.75"/></linearGradient></defs><path d="M100 300 Q92 230 88 165 Q84 105 95 55 Q100 28 98 8" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M88 165 Q65 158 50 150 Q40 142 50 133 Q60 130 80 140" fill="url(%23leaf3)"/><path d="M95 120 Q115 113 130 105 Q140 98 130 90 Q120 87 100 95" fill="url(%23leaf3)"/><path d="M98 70 Q75 64 60 56 Q50 48 60 42 Q70 40 88 50" fill="url(%23leaf3)"/></svg>');
+    animation-delay: 5s;
 }
 
 @keyframes gentleSway {
-    0%, 100% { transform: translateX(0) rotate(0deg); }
-    50% { transform: translateX(8px) rotate(2deg); }
+    0%, 100% { 
+        transform: translateX(0) translateY(0) rotate(0deg); 
+        filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
+    }
+    50% { 
+        transform: translateX(12px) translateY(-5px) rotate(3deg); 
+        filter: drop-shadow(0 0 15px rgba(0, 191, 165, 0.5));
+    }
 }
 
-/* Header */
+/* Header Art Nouveau */
 header {
     position: relative;
     z-index: 10;
     text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(180deg, rgba(26, 58, 26, 0.9) 0%, rgba(26, 58, 26, 0.7) 100%);
-    border-bottom: 3px solid #DAA520;
-    box-shadow: 0 4px 20px rgba(218, 165, 32, 0.2);
+    padding: 40px 20px;
+    background: 
+        linear-gradient(135deg, rgba(0, 191, 165, 0.08) 0%, rgba(218, 165, 32, 0.12) 50%, rgba(0, 139, 139, 0.08) 100%),
+        linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 24, 16, 0.9) 100%);
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, 
+        rgba(0, 191, 165, 0.6) 0%, 
+        rgba(218, 165, 32, 0.9) 25%,
+        rgba(255, 140, 0, 0.7) 50%,
+        rgba(218, 165, 32, 0.9) 75%,
+        rgba(64, 224, 208, 0.6) 100%
+    ) 1;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.7),
+        inset 0 -2px 20px rgba(218, 165, 32, 0.2),
+        0 0 40px rgba(0, 191, 165, 0.15);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 191, 165, 0.4) 20%,
+        rgba(218, 165, 32, 0.6) 50%,
+        rgba(0, 191, 165, 0.4) 80%,
+        transparent 100%
+    );
+    animation: headerShimmer 8s ease-in-out infinite;
+}
+
+@keyframes headerShimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 header h1 {
-    font-size: 3em;
-    color: #DAA520;
+    font-size: 3.5em;
+    background: linear-gradient(135deg, 
+        #00bf9f 0%, 
+        #DAA520 25%,
+        #FF8C00 50%,
+        #DAA520 75%,
+        #40E0D0 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 10s ease infinite;
     text-shadow: 
-        0 0 10px rgba(218, 165, 32, 0.5),
-        2px 2px 4px rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
+        0 0 20px rgba(218, 165, 32, 0.4),
+        0 0 40px rgba(0, 191, 165, 0.3),
+        3px 3px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
     margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .header-controls {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .header-btn {
-    padding: 10px 20px;
-    background: rgba(218, 165, 32, 0.2);
-    border: 2px solid #DAA520;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15), rgba(218, 165, 32, 0.2));
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.6), rgba(218, 165, 32, 0.8)) 1;
     color: #DAA520;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
+    font-size: 1.05em;
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.header-btn:hover::before {
+    left: 100%;
 }
 
 .header-btn:hover {
-    background: rgba(218, 165, 32, 0.3);
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.25), rgba(218, 165, 32, 0.35));
+    box-shadow: 
+        0 0 25px rgba(218, 165, 32, 0.5),
+        0 0 15px rgba(0, 191, 165, 0.3);
+    transform: translateY(-3px);
+    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.9), rgba(255, 215, 0, 1)) 1;
 }
 
-/* Bibliothèque */
+/* Bibliothèque Art Nouveau */
 .library-container {
     position: relative;
     z-index: 5;
     max-width: 1400px;
-    margin: 40px auto;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, rgba(69, 49, 33, 0.6) 0%, rgba(92, 64, 51, 0.6) 100%);
-    border-radius: 20px;
+    margin: 50px auto;
+    padding: 50px 30px;
+    background: 
+        radial-gradient(ellipse at top, rgba(0, 191, 165, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(218, 165, 32, 0.08) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(69, 49, 33, 0.75) 0%, rgba(92, 64, 51, 0.7) 50%, rgba(69, 49, 33, 0.75) 100%);
+    border-radius: 30px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(135deg,
+        rgba(0, 191, 165, 0.4) 0%,
+        rgba(218, 165, 32, 0.6) 25%,
+        rgba(255, 140, 0, 0.5) 50%,
+        rgba(218, 165, 32, 0.6) 75%,
+        rgba(64, 224, 208, 0.4) 100%
+    ) 1;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.6),
-        inset 0 0 30px rgba(218, 165, 32, 0.1);
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 60px rgba(0, 0, 0, 0.4),
+        inset 0 0 100px rgba(218, 165, 32, 0.08),
+        0 0 80px rgba(0, 191, 165, 0.15);
     backdrop-filter: blur(10px);
 }
 
-/* Étagère */
+.library-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg,
+        rgba(0, 191, 165, 0.1) 0%,
+        rgba(218, 165, 32, 0.15) 50%,
+        rgba(0, 191, 165, 0.1) 100%
+    );
+    border-radius: 30px;
+    z-index: -1;
+    opacity: 0.6;
+    animation: containerGlow 8s ease-in-out infinite;
+}
+
+@keyframes containerGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+/* Étagère Art Nouveau */
 .shelf {
     position: relative;
-    margin-bottom: 60px;
-    padding: 20px 0;
+    margin-bottom: 70px;
+    padding: 25px 0;
+}
+
+.shelf::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 191, 165, 0.3) 20%,
+        rgba(218, 165, 32, 0.5) 50%,
+        rgba(0, 191, 165, 0.3) 80%,
+        transparent 100%
+    );
 }
 
 .shelf-label {
     position: absolute;
-    left: -80px;
+    left: -90px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.3em;
-    color: #DAA520;
+    font-size: 1.4em;
+    background: linear-gradient(135deg, #00bf9f, #DAA520, #FF8C00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+    text-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+    filter: drop-shadow(0 0 8px rgba(0, 191, 165, 0.3));
+    letter-spacing: 1px;
 }
 
 .add-book-btn {
     position: absolute;
-    left: 10px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.3), rgba(218, 165, 32, 0.5));
-    border: 2px solid #DAA520;
-    color: #DAA520;
-    font-size: 2em;
+    width: 50px;
+    height: 50px;
+    background: 
+        radial-gradient(circle, rgba(218, 165, 32, 0.4) 0%, rgba(0, 191, 165, 0.3) 100%),
+        linear-gradient(135deg, rgba(218, 165, 32, 0.25), rgba(0, 191, 165, 0.2));
+    border: 3px solid transparent;
+    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(218, 165, 32, 0.9)) 1;
+    color: #FFD700;
+    font-size: 2.2em;
     font-weight: bold;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10;
-    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+    box-shadow: 
+        0 6px 20px rgba(218, 165, 32, 0.4),
+        inset 0 0 20px rgba(218, 165, 32, 0.2),
+        0 0 30px rgba(0, 191, 165, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.add-book-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.add-book-btn:hover::before {
+    width: 100px;
+    height: 100px;
 }
 
 .add-book-btn:hover {
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.5), rgba(218, 165, 32, 0.7));
-    box-shadow: 0 0 25px rgba(218, 165, 32, 0.6);
-    transform: translateY(-50%) scale(1.1);
+    background: 
+        radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(0, 191, 165, 0.4) 100%),
+        linear-gradient(135deg, rgba(218, 165, 32, 0.4), rgba(0, 191, 165, 0.35));
+    box-shadow: 
+        0 0 35px rgba(218, 165, 32, 0.7),
+        0 0 20px rgba(0, 191, 165, 0.5),
+        inset 0 0 25px rgba(255, 215, 0, 0.3);
+    transform: translateY(-50%) scale(1.15) rotate(90deg);
+    border-image: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(0, 191, 165, 0.9)) 1;
 }
 
 .books-container {
     display: flex;
-    gap: 15px;
-    padding: 0 80px;
-    min-height: 180px;
+    gap: 18px;
+    padding: 0 90px;
+    min-height: 190px;
     align-items: flex-end;
     flex-wrap: wrap;
 }
@@ -209,51 +388,61 @@ header h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 15px;
-    background: linear-gradient(180deg, #5C4033 0%, #3E2723 100%);
-    border-radius: 3px;
+    height: 18px;
+    background: 
+        linear-gradient(180deg, rgba(92, 64, 51, 0.9) 0%, rgba(62, 39, 35, 0.95) 100%);
+    border-radius: 4px;
     box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.5),
-        inset 0 1px 2px rgba(218, 165, 32, 0.2);
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(218, 165, 32, 0.15),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
 }
 
-/* Livres */
+/* Livres Art Nouveau luxueux */
 .book {
     position: relative;
-    width: 120px;
-    height: 160px;
+    width: 130px;
+    height: 170px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: bottom center;
-    animation: bookAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: bookAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes bookAppear {
     0% {
         opacity: 0;
-        transform: scale(0.8) translateY(20px);
+        transform: scale(0.7) translateY(30px) rotateY(-20deg);
     }
     100% {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0) rotateY(0deg);
     }
 }
 
 .book:hover {
-    transform: translateY(-10px) scale(1.05);
-    filter: drop-shadow(0 0 20px rgba(218, 165, 32, 0.6));
+    transform: translateY(-15px) scale(1.08);
+    filter: 
+        drop-shadow(0 0 30px rgba(218, 165, 32, 0.7))
+        drop-shadow(0 0 20px rgba(0, 191, 165, 0.5));
+    z-index: 10;
 }
 
 .book-spine {
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 6px;
     position: relative;
     box-shadow: 
-        4px 4px 12px rgba(0, 0, 0, 0.5),
-        inset 0 0 20px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(218, 165, 32, 0.4);
+        6px 6px 18px rgba(0, 0, 0, 0.6),
+        -2px -2px 10px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(0, 0, 0, 0.3),
+        inset 2px 2px 8px rgba(218, 165, 32, 0.15);
+    border: 2px solid rgba(218, 165, 32, 0.5);
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
 .book-spine::before {
@@ -263,7 +452,31 @@ header h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.3;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.book-spine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(165deg,
+        transparent 0%,
+        rgba(218, 165, 32, 0.1) 30%,
+        transparent 50%,
+        rgba(0, 191, 165, 0.08) 70%,
+        transparent 100%
+    );
+    z-index: 2;
+    animation: bookShimmer 6s ease-in-out infinite;
+}
+
+@keyframes bookShimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
 }
 
 .book-title {
@@ -271,79 +484,92 @@ header h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    color: #DAA520;
-    font-size: 0.9em;
+    color: #FFD700;
+    font-size: 0.95em;
     font-weight: bold;
     text-shadow: 
-        0 0 8px rgba(0, 0, 0, 0.8),
-        0 0 3px rgba(218, 165, 32, 0.5);
+        0 0 10px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(218, 165, 32, 0.6),
+        0 0 5px rgba(0, 191, 165, 0.4),
+        1px 1px 3px rgba(0, 0, 0, 1);
     white-space: nowrap;
-    max-width: 140px;
+    max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
-    z-index: 2;
+    z-index: 3;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 3px rgba(218, 165, 32, 0.8));
 }
 
-/* Styles de livres */
+/* Styles de livres Art Nouveau - Très distincts */
+
+/* 1. Fleurs dorées - Turquoise avec fleurs d'or */
 .book-spine.fleurs-dorees {
-    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+    background: linear-gradient(135deg, #008B8B 0%, #00CED1 50%, #008B8B 100%);
 }
 
 .book-spine.fleurs-dorees::before {
-    background-image: 
-        radial-gradient(circle at 30% 40%, rgba(218, 165, 32, 0.4) 0%, transparent 60%),
-        radial-gradient(circle at 70% 60%, rgba(218, 165, 32, 0.3) 0%, transparent 50%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke="%23DAA520" stroke-width="1.5" opacity="0.7"><circle cx="30" cy="25" r="8"/><circle cx="25" cy="25" r="3"/><circle cx="35" cy="25" r="3"/><circle cx="30" cy="20" r="3"/><circle cx="30" cy="30" r="3"/><circle cx="70" cy="50" r="8"/><circle cx="65" cy="50" r="3"/><circle cx="75" cy="50" r="3"/><circle cx="70" cy="45" r="3"/><circle cx="70" cy="55" r="3"/><circle cx="40" cy="75" r="8"/><circle cx="35" cy="75" r="3"/><circle cx="45" cy="75" r="3"/><circle cx="40" cy="70" r="3"/><circle cx="40" cy="80" r="3"/></g><path d="M30 25 L70 50 M70 50 L40 75" stroke="%23DAA520" stroke-width="0.8" opacity="0.4"/></svg>');
+    background-size: 80px 80px;
+    opacity: 0.6;
 }
 
+/* 2. Dorures élégantes - Bordeaux avec lignes d'or */
 .book-spine.dorures-elegantes {
-    background: linear-gradient(135deg, #2F4F2F 0%, #3a5f3a 100%);
+    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 50%, #8B0000 100%);
 }
 
 .book-spine.dorures-elegantes::before {
-    background: 
-        repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(218, 165, 32, 0.3) 10px, rgba(218, 165, 32, 0.3) 12px),
-        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(218, 165, 32, 0.3) 10px, rgba(218, 165, 32, 0.3) 12px);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%23FFD700" fill="none" stroke-width="1.5" opacity="0.8"><path d="M10 20 Q50 10 90 20"/><path d="M10 50 Q50 40 90 50"/><path d="M10 80 Q50 70 90 80"/><rect x="15" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="48" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="81" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="15" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="48" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="81" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/></g></svg>');
+    background-size: 90px 90px;
+    opacity: 0.65;
 }
 
+/* 3. Arabesque - Vert émeraude avec motifs courbes */
 .book-spine.arabesque {
-    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
+    background: linear-gradient(135deg, #2F4F4F 0%, #3CB371 50%, #2F4F4F 100%);
 }
 
 .book-spine.arabesque::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q30 30 50 50 Q70 70 50 90 M50 10 Q70 30 50 50 Q30 70 50 90" fill="none" stroke="rgba(218,165,32,0.4)" stroke-width="2"/></svg>');
-    background-size: 40px 40px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke="%23DAA520" stroke-width="1.8" opacity="0.75"><path d="M50 10 Q30 30 50 50 Q70 70 50 90"/><path d="M50 10 Q70 30 50 50 Q30 70 50 90"/><circle cx="50" cy="50" r="12" stroke="%23FFD700" stroke-width="1"/><circle cx="50" cy="50" r="8" stroke="%2300CED1" stroke-width="0.8" opacity="0.5"/><path d="M35 35 Q50 40 65 35" stroke="%23FFD700" opacity="0.6"/><path d="M35 65 Q50 60 65 65" stroke="%23FFD700" opacity="0.6"/></g></svg>');
+    background-size: 75px 75px;
+    opacity: 0.7;
 }
 
+/* 4. Géométrique - Bleu nuit avec formes Art Déco */
 .book-spine.geometrique {
-    background: linear-gradient(135deg, #191970 0%, #2a2a8a 100%);
+    background: linear-gradient(135deg, #191970 0%, #4169E1 50%, #191970 100%);
 }
 
 .book-spine.geometrique::before {
-    background: 
-        linear-gradient(45deg, transparent 30%, rgba(218, 165, 32, 0.3) 30%, rgba(218, 165, 32, 0.3) 70%, transparent 70%),
-        linear-gradient(-45deg, transparent 30%, rgba(218, 165, 32, 0.3) 30%, rgba(218, 165, 32, 0.3) 70%, transparent 70%);
-    background-size: 30px 30px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="%23DAA520" opacity="0.7"><polygon points="50,15 55,25 65,25 57,32 60,42 50,36 40,42 43,32 35,25 45,25"/><polygon points="25,50 30,60 40,60 32,67 35,77 25,71 15,77 18,67 10,60 20,60"/><polygon points="75,50 80,60 90,60 82,67 85,77 75,71 65,77 68,67 60,60 70,60"/></g><rect x="20" y="20" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="65" y="20" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="20" y="77" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="65" y="77" width="15" height="3" fill="%23FFD700" opacity="0.5"/></svg>');
+    background-size: 85px 85px;
+    opacity: 0.68;
 }
 
+/* 5. Classique - Noir avec bordures d'or */
 .book-spine.classique {
-    background: linear-gradient(135deg, #1C1C1C 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #1C1C1C 0%, #2F2F2F 50%, #1C1C1C 100%);
 }
 
 .book-spine.classique::before {
-    background: 
-        linear-gradient(180deg, rgba(218, 165, 32, 0.3) 0%, transparent 10%, transparent 90%, rgba(218, 165, 32, 0.3) 100%);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%23DAA520" fill="none" stroke-width="2" opacity="0.8"><rect x="10" y="10" width="80" height="80"/><rect x="15" y="15" width="70" height="70" stroke="%23FFD700"/><line x1="50" y1="10" x2="50" y2="25" stroke="%23DAA520" stroke-width="1.5"/><line x1="50" y1="75" x2="50" y2="90" stroke="%23DAA520" stroke-width="1.5"/><line x1="10" y1="50" x2="25" y2="50" stroke="%23DAA520" stroke-width="1.5"/><line x1="75" y1="50" x2="90" y2="50" stroke="%23DAA520" stroke-width="1.5"/></g><circle cx="50" cy="50" r="8" fill="%23FFD700" opacity="0.4"/></svg>');
+    background-size: 100px 100px;
+    opacity: 0.7;
 }
 
+/* 6. Jardin botanique - Vert olive avec feuilles */
 .book-spine.botanique {
-    background: linear-gradient(135deg, #556B2F 0%, #6b8e3a 100%);
+    background: linear-gradient(135deg, #556B2F 0%, #6B8E23 50%, #556B2F 100%);
 }
 
 .book-spine.botanique::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="30" r="8" fill="rgba(218,165,32,0.3)"/><ellipse cx="50" cy="50" rx="6" ry="15" fill="rgba(218,165,32,0.2)"/><circle cx="50" cy="70" r="8" fill="rgba(218,165,32,0.3)"/></svg>');
-    background-size: 50px 50px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="%23DAA520" opacity="0.7"><ellipse cx="30" cy="25" rx="8" ry="15" transform="rotate(30 30 25)"/><ellipse cx="70" cy="35" rx="8" ry="15" transform="rotate(-45 70 35)"/><ellipse cx="50" cy="55" rx="8" ry="15" transform="rotate(15 50 55)"/><ellipse cx="25" cy="70" rx="8" ry="15" transform="rotate(-30 25 70)"/><ellipse cx="75" cy="75" rx="8" ry="15" transform="rotate(60 75 75)"/></g><path d="M30 25 Q50 40 50 55 M50 55 Q35 60 25 70 M50 55 Q65 60 75 75 M50 55 Q60 45 70 35" stroke="%2300CED1" stroke-width="1.2" fill="none" opacity="0.5"/><g fill="%23FFD700" opacity="0.5"><circle cx="30" cy="25" r="2"/><circle cx="70" cy="35" r="2"/><circle cx="50" cy="55" r="2.5"/><circle cx="25" cy="70" r="2"/><circle cx="75" cy="75" r="2"/></g></svg>');
+    background-size: 80px 80px;
+    opacity: 0.65;
 }
 
-/* Modal */
+/* Modal Art Nouveau */
 .modal {
     display: none;
     position: fixed;
@@ -352,8 +578,8 @@ header h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
     animation: fadeIn 0.3s ease;
 }
 
@@ -364,32 +590,70 @@ header h1 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to { 
+        opacity: 1;
+        backdrop-filter: blur(12px);
+    }
 }
 
 .modal-content {
-    background: linear-gradient(135deg, rgba(26, 58, 26, 0.95) 0%, rgba(45, 90, 45, 0.95) 100%);
-    border: 3px solid #DAA520;
-    border-radius: 15px;
+    background: 
+        radial-gradient(ellipse at top left, rgba(0, 191, 165, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(218, 165, 32, 0.1) 0%, transparent 60%),
+        linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(42, 24, 16, 0.96) 50%, rgba(26, 26, 26, 0.98) 100%);
+    border: 4px solid transparent;
+    border-image: linear-gradient(135deg,
+        rgba(0, 191, 165, 0.6) 0%,
+        rgba(218, 165, 32, 0.8) 25%,
+        rgba(255, 140, 0, 0.7) 50%,
+        rgba(218, 165, 32, 0.8) 75%,
+        rgba(64, 224, 208, 0.6) 100%
+    ) 1;
+    border-radius: 20px;
     width: 90%;
     max-width: 700px;
     max-height: 90vh;
     overflow: hidden;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(218, 165, 32, 0.3);
-    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(218, 165, 32, 0.4),
+        0 0 40px rgba(0, 191, 165, 0.3),
+        inset 0 0 80px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 191, 165, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    animation: modalGlow 6s ease-in-out infinite;
+}
+
+@keyframes modalGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
 }
 
 .modal-content.card-view {
-    max-width: 600px;
+    max-width: 650px;
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(50px) scale(0.9);
+        transform: translateY(60px) scale(0.92);
     }
     to {
         opacity: 1;
@@ -398,171 +662,249 @@ header h1 {
 }
 
 .modal-header {
-    padding: 25px 30px;
-    background: rgba(218, 165, 32, 0.15);
-    border-bottom: 2px solid #DAA520;
+    padding: 30px 35px;
+    background: 
+        linear-gradient(135deg, rgba(0, 191, 165, 0.12) 0%, rgba(218, 165, 32, 0.15) 100%),
+        rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg,
+        rgba(0, 191, 165, 0.5) 0%,
+        rgba(218, 165, 32, 0.7) 50%,
+        rgba(0, 191, 165, 0.5) 100%
+    ) 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(218, 165, 32, 0.4) 20%,
+        rgba(0, 191, 165, 0.6) 50%,
+        rgba(218, 165, 32, 0.4) 80%,
+        transparent 100%
+    );
+    animation: headerShine 4s ease-in-out infinite;
+}
+
+@keyframes headerShine {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 .modal-header h2 {
-    color: #DAA520;
-    font-size: 1.8em;
-    text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+    background: linear-gradient(135deg, #00bf9f, #DAA520, #FF8C00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2em;
+    text-shadow: 0 0 20px rgba(218, 165, 32, 0.4);
+    filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
 }
 
 .close-btn {
-    background: none;
-    border: none;
-    color: #DAA520;
-    font-size: 2em;
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), rgba(0, 191, 165, 0.15));
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: #FFD700;
+    font-size: 1.8em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-btn:hover {
-    color: #FFD700;
-    transform: rotate(90deg);
-    text-shadow: 0 0 15px rgba(218, 165, 32, 0.8);
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.4), rgba(0, 191, 165, 0.3));
+    border-color: #FFD700;
+    color: #FFF;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 
+        0 0 25px rgba(218, 165, 32, 0.8),
+        0 0 15px rgba(0, 191, 165, 0.6);
 }
 
 .modal-body {
-    padding: 30px;
+    padding: 35px;
     overflow-y: auto;
-    max-height: calc(90vh - 200px);
+    max-height: calc(90vh - 220px);
+    position: relative;
+    z-index: 1;
 }
 
 .modal-body::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
 }
 
 .modal-body::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .modal-body::-webkit-scrollbar-thumb {
-    background: rgba(218, 165, 32, 0.5);
-    border-radius: 5px;
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.5), rgba(218, 165, 32, 0.6));
+    border-radius: 10px;
+    border: 1px solid rgba(218, 165, 32, 0.4);
 }
 
 .modal-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(218, 165, 32, 0.7);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(218, 165, 32, 0.8));
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
 .form-group label {
     display: block;
-    color: #DAA520;
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    background: linear-gradient(135deg, #00bf9f, #DAA520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.15em;
+    margin-bottom: 12px;
     font-weight: bold;
+    filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.3));
 }
 
 .form-group input[type="text"],
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.3);
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(218, 165, 32, 0.4);
-    border-radius: 8px;
+    border-radius: 10px;
     color: #f5f5dc;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
-    transition: all 0.3s ease;
+    font-size: 1.05em;
+    transition: all 0.4s ease;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #DAA520;
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
-    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 191, 165, 0.7);
+    box-shadow: 
+        0 0 20px rgba(0, 191, 165, 0.4),
+        0 0 10px rgba(218, 165, 32, 0.3),
+        inset 0 2px 8px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 160px;
 }
 
 /* Sélection de style */
 .book-styles {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 18px;
 }
 
 .style-option {
     cursor: pointer;
     text-align: center;
-    padding: 10px;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    padding: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .style-option:hover {
-    border-color: rgba(218, 165, 32, 0.5);
-    background: rgba(218, 165, 32, 0.1);
+    border-color: rgba(0, 191, 165, 0.5);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.1), rgba(218, 165, 32, 0.15));
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+    transform: translateY(-2px);
 }
 
 .style-option.selected {
-    border-color: #DAA520;
-    background: rgba(218, 165, 32, 0.2);
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+    border-color: rgba(218, 165, 32, 0.8);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.2), rgba(218, 165, 32, 0.25));
+    box-shadow: 
+        0 0 25px rgba(218, 165, 32, 0.5),
+        0 0 15px rgba(0, 191, 165, 0.4);
 }
 
 .style-preview {
-    width: 80px;
-    height: 100px;
-    margin: 0 auto 10px;
-    border-radius: 5px;
-    border: 2px solid rgba(218, 165, 32, 0.4);
+    width: 85px;
+    height: 110px;
+    margin: 0 auto 12px;
+    border-radius: 6px;
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    box-shadow: 
+        3px 3px 10px rgba(0, 0, 0, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .style-option span {
     display: block;
     color: #f5f5dc;
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 
 /* Couleurs */
 .color-picker {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .color-btn {
-    width: 50px;
-    height: 50px;
-    border: 3px solid transparent;
-    border-radius: 8px;
+    width: 55px;
+    height: 55px;
+    border: 3px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .color-btn:hover {
-    transform: scale(1.1);
-    border-color: rgba(218, 165, 32, 0.5);
+    transform: scale(1.12);
+    border-color: rgba(0, 191, 165, 0.6);
+    box-shadow: 
+        0 0 20px rgba(218, 165, 32, 0.5),
+        3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .color-btn.selected {
-    border-color: #DAA520;
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
-    transform: scale(1.15);
+    border-color: rgba(218, 165, 32, 0.9);
+    box-shadow: 
+        0 0 30px rgba(218, 165, 32, 0.7),
+        0 0 15px rgba(0, 191, 165, 0.5);
+    transform: scale(1.2);
 }
 
 /* Footer modal */
 .modal-footer {
-    padding: 20px 30px;
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 2px solid rgba(218, 165, 32, 0.3);
+    padding: 25px 35px;
+    background: 
+        linear-gradient(135deg, rgba(0, 191, 165, 0.08) 0%, rgba(218, 165, 32, 0.1) 100%),
+        rgba(0, 0, 0, 0.4);
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg,
+        rgba(0, 191, 165, 0.4) 0%,
+        rgba(218, 165, 32, 0.6) 50%,
+        rgba(0, 191, 165, 0.4) 100%
+    ) 1;
     display: flex;
     gap: 15px;
     justify-content: flex-end;
@@ -570,62 +912,73 @@ header h1 {
 
 .btn-primary,
 .btn-secondary {
-    padding: 12px 30px;
-    border: 2px solid #DAA520;
-    border-radius: 8px;
+    padding: 14px 32px;
+    border: 2px solid transparent;
+    border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
+    font-size: 1.05em;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.6), rgba(218, 165, 32, 0.8));
-    color: #1a3a1a;
+    transition: all 0.4s ease;
     font-weight: bold;
 }
 
+.btn-primary {
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.5), rgba(218, 165, 32, 0.7));
+    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.8), rgba(218, 165, 32, 0.9)) 1;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+}
+
 .btn-primary:hover {
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.8), rgba(255, 215, 0, 0.9));
-    box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(255, 215, 0, 0.9));
+    box-shadow: 
+        0 0 30px rgba(218, 165, 32, 0.7),
+        0 0 15px rgba(0, 191, 165, 0.5);
+    transform: translateY(-3px);
 }
 
 .btn-secondary {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(218, 165, 32, 0.4);
     color: #f5f5dc;
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.5);
-    border-color: #FFD700;
+    background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 191, 165, 0.6);
+    box-shadow: 0 0 15px rgba(0, 191, 165, 0.3);
 }
 
 /* Contenu de la fiche */
 .card-content {
     color: #f5f5dc;
-    line-height: 1.8;
+    line-height: 1.9;
     white-space: pre-wrap;
-    font-size: 1.05em;
+    font-size: 1.08em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .card-content-edit {
     width: 100%;
-    min-height: 300px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
+    min-height: 320px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(218, 165, 32, 0.4);
-    border-radius: 8px;
+    border-radius: 10px;
     color: #f5f5dc;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
+    font-size: 1.05em;
     resize: vertical;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .card-content-edit:focus {
     outline: none;
-    border-color: #DAA520;
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+    border-color: rgba(0, 191, 165, 0.7);
+    box-shadow: 
+        0 0 20px rgba(0, 191, 165, 0.4),
+        0 0 10px rgba(218, 165, 32, 0.3),
+        inset 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Barre d'outils */
@@ -634,66 +987,117 @@ header h1 {
 }
 
 .toolbar-btn {
-    padding: 10px 20px;
-    background: rgba(218, 165, 32, 0.2);
-    border: 2px solid #DAA520;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15), rgba(218, 165, 32, 0.2));
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.6), rgba(218, 165, 32, 0.7)) 1;
     color: #DAA520;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
+    font-size: 1.05em;
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    transition: all 0.4s ease;
 }
 
 .toolbar-btn:hover {
-    background: rgba(218, 165, 32, 0.3);
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.25), rgba(218, 165, 32, 0.35));
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.5);
+    transform: translateY(-2px);
+}
+
+.toolbar-btn.delete {
+    border-image: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(218, 165, 32, 0.5)) 1;
 }
 
 .toolbar-btn.delete:hover {
-    background: rgba(139, 0, 0, 0.3);
-    border-color: #8B0000;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(218, 165, 32, 0.2));
+    border-image: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(218, 165, 32, 0.6)) 1;
     color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
 }
 
 .edit-actions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+        letter-spacing: 2px;
     }
 
     .shelf-label {
         position: static;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         text-align: center;
+        font-size: 1.2em;
     }
 
     .add-book-btn {
         left: 50%;
-        top: -20px;
+        top: -25px;
         transform: translateX(-50%);
     }
 
+    .add-book-btn:hover {
+        transform: translateX(-50%) scale(1.15) rotate(90deg);
+    }
+
     .books-container {
-        padding: 40px 20px 0;
+        padding: 45px 20px 0;
         justify-content: center;
+        min-height: 160px;
     }
 
     .book {
-        width: 100px;
-        height: 140px;
+        width: 110px;
+        height: 150px;
     }
 
     .book-styles {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .plants-decoration {
-        opacity: 0.3;
+        opacity: 0.25;
+    }
+
+    .library-container {
+        padding: 40px 20px;
+        margin: 30px auto;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .modal-header {
+        padding: 20px 25px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-body {
+        padding: 25px;
+    }
+
+    .modal-footer {
+        padding: 18px 25px;
+        flex-wrap: wrap;
+    }
+
+    .color-picker {
+        gap: 8px;
+    }
+
+    .color-btn {
+        width: 45px;
+        height: 45px;
     }
 }
