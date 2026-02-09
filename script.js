@@ -57,15 +57,21 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 // ========================================
 
 async function saveBook(bookData) {
-    const compressed = compressData(bookData);
+    // On compresse UNIQUEMENT le contenu texte
+    const compressedContent = compressData({ content: bookData.content });
+    
     return new Promise((resolve, reject) => {
         const transaction = db.transaction([STORE_NAME], 'readwrite');
         const store = transaction.objectStore(STORE_NAME);
         
+        // On sauvegarde les métadonnées en clair + contenu compressé
         const bookToSave = {
-            ...bookData,
-            compressedContent: compressed,
-            content: undefined // On enlève le contenu non compressé
+            id: bookData.id,
+            title: bookData.title,
+            style: bookData.style,
+            color: bookData.color,
+            level: bookData.level,
+            compressedContent: compressedContent
         };
 
         const request = bookData.id 
@@ -85,8 +91,16 @@ async function getAllBooks() {
 
         request.onsuccess = () => {
             const books = request.result.map(book => {
-                const decompressed = decompressData(book.compressedContent);
-                return { ...book, ...decompressed };
+                // Décompression du contenu uniquement
+                const decompressedData = decompressData(book.compressedContent);
+                return {
+                    id: book.id,
+                    title: book.title,
+                    style: book.style,
+                    color: book.color,
+                    level: book.level,
+                    content: decompressedData ? decompressedData.content : ''
+                };
             });
             resolve(books);
         };
@@ -214,9 +228,13 @@ async function saveBookFromModal() {
         content,
         style: selectedStyle.dataset.style,
         color: selectedColor.dataset.color,
-        level: currentBookData ? currentBookData.level : currentShelfLevel,
-        id: currentBookData ? currentBookData.id : undefined
+        level: currentBookData ? currentBookData.level : currentShelfLevel
     };
+
+    // On ajoute l'id seulement si on édite un livre existant
+    if (currentBookData && currentBookData.id) {
+        bookData.id = currentBookData.id;
+    }
 
     try {
         await saveBook(bookData);
@@ -370,8 +388,15 @@ async function importData(event) {
 
             // Import new data
             for (const book of books) {
-                delete book.id; // Let DB assign new IDs
-                await saveBook(book);
+                // On enlève l'id pour que la DB en assigne un nouveau
+                const bookToImport = {
+                    title: book.title,
+                    content: book.content,
+                    style: book.style,
+                    color: book.color,
+                    level: book.level
+                };
+                await saveBook(bookToImport);
             }
 
             await renderBooks();
