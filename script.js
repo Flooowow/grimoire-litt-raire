@@ -17,18 +17,26 @@ let editMode = false;
 
 function initDB() {
     return new Promise((resolve, reject) => {
+        console.log('🔧 Initialisation de la base de données...');
         const request = indexedDB.open(DB_NAME, DB_VERSION);
 
-        request.onerror = () => reject(request.error);
+        request.onerror = () => {
+            console.error('❌ Erreur d\'ouverture de la DB:', request.error);
+            reject(request.error);
+        };
+        
         request.onsuccess = () => {
             db = request.result;
+            console.log('✅ Base de données ouverte avec succès!');
             resolve(db);
         };
 
         request.onupgradeneeded = (event) => {
+            console.log('⚡ Mise à jour de la structure de la DB...');
             const database = event.target.result;
             if (!database.objectStoreNames.contains(STORE_NAME)) {
-                database.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+                const objectStore = database.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+                console.log('📦 Store créé:', STORE_NAME);
             }
         };
     });
@@ -57,30 +65,58 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 // ========================================
 
 async function saveBook(bookData) {
-    // On compresse UNIQUEMENT le contenu texte
-    const compressedContent = compressData({ content: bookData.content });
-    
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction([STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(STORE_NAME);
+    try {
+        // Vérification des données
+        if (!bookData.title || !bookData.content || !bookData.style || !bookData.color || !bookData.level) {
+            throw new Error('Données incomplètes: ' + JSON.stringify(bookData));
+        }
+
+        // On compresse UNIQUEMENT le contenu texte
+        const compressedContent = compressData({ content: bookData.content });
         
-        // On sauvegarde les métadonnées en clair + contenu compressé
-        const bookToSave = {
-            id: bookData.id,
-            title: bookData.title,
-            style: bookData.style,
-            color: bookData.color,
-            level: bookData.level,
-            compressedContent: compressedContent
-        };
+        // Test de décompression pour vérifier l'intégrité
+        const testDecompress = decompressData(compressedContent);
+        if (!testDecompress || !testDecompress.content) {
+            throw new Error('Erreur de compression/décompression');
+        }
+        
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction([STORE_NAME], 'readwrite');
+            const store = transaction.objectStore(STORE_NAME);
+            
+            // Construction de l'objet à sauvegarder
+            const bookToSave = {
+                title: bookData.title,
+                style: bookData.style,
+                color: bookData.color,
+                level: bookData.level,
+                compressedContent: compressedContent
+            };
 
-        const request = bookData.id 
-            ? store.put(bookToSave)
-            : store.add(bookToSave);
+            // On ajoute l'id SEULEMENT s'il existe (pour les updates)
+            if (bookData.id) {
+                bookToSave.id = bookData.id;
+            }
 
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
+            // Pour un nouveau livre (pas d'id), on utilise add
+            // Pour une mise à jour (avec id), on utilise put
+            const request = bookData.id 
+                ? store.put(bookToSave)
+                : store.add(bookToSave);
+
+            request.onsuccess = () => {
+                console.log('✅ Livre sauvegardé avec succès! ID:', request.result);
+                resolve(request.result);
+            };
+            request.onerror = () => {
+                console.error('❌ Erreur de sauvegarde IndexedDB:', request.error);
+                reject(request.error);
+            };
+        });
+    } catch (error) {
+        console.error('❌ Erreur dans saveBook:', error);
+        throw error;
+    }
 }
 
 async function getAllBooks() {
@@ -90,6 +126,7 @@ async function getAllBooks() {
         const request = store.getAll();
 
         request.onsuccess = () => {
+            console.log('📚 Livres récupérés:', request.result.length);
             const books = request.result.map(book => {
                 // Décompression du contenu uniquement
                 const decompressedData = decompressData(book.compressedContent);
@@ -104,7 +141,10 @@ async function getAllBooks() {
             });
             resolve(books);
         };
-        request.onerror = () => reject(request.error);
+        request.onerror = () => {
+            console.error('❌ Erreur getAllBooks:', request.error);
+            reject(request.error);
+        };
     });
 }
 
@@ -234,15 +274,19 @@ async function saveBookFromModal() {
     // On ajoute l'id seulement si on édite un livre existant
     if (currentBookData && currentBookData.id) {
         bookData.id = currentBookData.id;
+        console.log('📝 Mise à jour du livre:', bookData.id, bookData.title);
+    } else {
+        console.log('✨ Création d\'un nouveau livre:', bookData.title, 'sur étagère:', bookData.level);
     }
 
     try {
-        await saveBook(bookData);
+        const resultId = await saveBook(bookData);
+        console.log('💾 Livre sauvegardé avec ID:', resultId);
         await renderBooks();
         closeBookModal();
     } catch (error) {
-        console.error('Erreur lors de la sauvegarde:', error);
-        alert('❌ Erreur lors de la sauvegarde du livre.');
+        console.error('❌ Erreur lors de la sauvegarde:', error);
+        alert('❌ Erreur lors de la sauvegarde du livre: ' + error.message);
     }
 }
 
