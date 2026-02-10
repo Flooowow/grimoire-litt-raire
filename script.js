@@ -210,9 +210,9 @@ function openAddBookModal(level) {
     document.querySelectorAll('.style-option').forEach(opt => opt.classList.remove('selected'));
     document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('selected'));
     
-    // Select defaults - Olive Petal par défaut
+    // Select defaults - Peach Blossom par défaut
     document.querySelector('.style-option[data-style="fleurs-dorees"]').classList.add('selected');
-    document.querySelector('.color-btn[data-color="#A3A380"]').classList.add('selected');
+    document.querySelector('.color-btn[data-color="#B88588"]').classList.add('selected');
 
     document.getElementById('bookModal').classList.add('active');
 }
