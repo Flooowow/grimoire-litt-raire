@@ -7,11 +7,11 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     background: 
-        radial-gradient(ellipse at top, rgba(0, 139, 139, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(218, 165, 32, 0.1) 0%, transparent 60%),
-        linear-gradient(135deg, #1a1a1a 0%, #2a1810 30%, #1a1a1a 60%, #0f1a0f 100%);
+        radial-gradient(ellipse at top, rgba(163, 163, 128, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(215, 206, 147, 0.1) 0%, transparent 60%),
+        linear-gradient(135deg, #3a3d2f 0%, #4a4a3a 30%, #3a3d2f 60%, #2f3526 100%);
     background-attachment: fixed;
-    color: #f5f5dc;
+    color: #EFEBCE;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -26,10 +26,10 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 30% 20%, rgba(0, 191, 165, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 70% 40%, rgba(255, 140, 0, 0.06) 0%, transparent 35%),
-        radial-gradient(circle at 50% 60%, rgba(218, 165, 32, 0.05) 0%, transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(64, 224, 208, 0.07) 0%, transparent 40%);
+        radial-gradient(circle at 30% 20%, rgba(215, 206, 147, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 70% 40%, rgba(216, 164, 143, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 50% 60%, rgba(184, 133, 136, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(163, 163, 128, 0.07) 0%, transparent 40%);
     background-size: 800px 800px, 600px 600px, 700px 700px, 500px 500px;
     animation: vitrailGlow 20s ease-in-out infinite;
     pointer-events: none;
@@ -37,8 +37,8 @@ body::before {
 }
 
 @keyframes vitrailGlow {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 0.9; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
 }
 
 /* Canvas pour particules */
@@ -52,7 +52,7 @@ body::before {
     z-index: 1;
 }
 
-/* Plantes décoratives Art Nouveau */
+/* Plantes décoratives botaniques */
 .plants-decoration {
     position: fixed;
     width: 100%;
@@ -65,8 +65,8 @@ body::before {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.5;
-    filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
+    opacity: 0.45;
+    filter: drop-shadow(0 0 10px rgba(163, 163, 128, 0.3));
     animation: gentleSway 8s ease-in-out infinite;
 }
 
@@ -75,7 +75,7 @@ body::before {
     height: 450px;
     left: -30px;
     top: 15%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300bf9f;stop-opacity:0.8"/><stop offset="100%25" style="stop-color:%23008b6b;stop-opacity:0.9"/></linearGradient></defs><path d="M100 300 Q75 240 65 180 Q55 120 75 70 Q85 40 80 15" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M65 180 Q40 170 30 160 Q20 150 35 140 Q50 135 65 145" fill="url(%23leaf1)"/><path d="M75 140 Q100 135 115 130 Q125 125 115 115 Q105 110 85 120" fill="url(%23leaf1)"/><path d="M75 100 Q50 95 35 85 Q25 75 40 70 Q55 70 70 80" fill="url(%23leaf1)"/><path d="M85 60 Q105 55 120 48 Q130 42 120 35 Q110 32 90 42" fill="url(%23leaf1)"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23A3A380;stop-opacity:0.8"/><stop offset="100%25" style="stop-color:%238a8a6b;stop-opacity:0.9"/></linearGradient></defs><path d="M100 300 Q75 240 65 180 Q55 120 75 70 Q85 40 80 15" fill="none" stroke="%235a5d4a" stroke-width="4" opacity="0.7"/><path d="M65 180 Q40 170 30 160 Q20 150 35 140 Q50 135 65 145" fill="url(%23leaf1)"/><path d="M75 140 Q100 135 115 130 Q125 125 115 115 Q105 110 85 120" fill="url(%23leaf1)"/><path d="M75 100 Q50 95 35 85 Q25 75 40 70 Q55 70 70 80" fill="url(%23leaf1)"/><path d="M85 60 Q105 55 120 48 Q130 42 120 35 Q110 32 90 42" fill="url(%23leaf1)"/></svg>');
     animation-delay: 0s;
 }
 
@@ -84,7 +84,7 @@ body::before {
     height: 420px;
     right: -10px;
     top: 30%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf2" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2340e0d0;stop-opacity:0.7"/><stop offset="100%25" style="stop-color:%23008b7a;stop-opacity:0.85"/></linearGradient></defs><path d="M100 300 Q115 235 120 170 Q125 110 110 60 Q100 30 105 10" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M120 170 Q145 162 160 155 Q170 148 160 138 Q150 133 125 145" fill="url(%23leaf2)"/><path d="M110 125 Q85 118 70 110 Q60 102 70 93 Q80 90 100 100" fill="url(%23leaf2)"/><path d="M110 80 Q135 72 150 65 Q160 58 150 50 Q140 47 115 58" fill="url(%23leaf2)"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf2" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23D7CE93;stop-opacity:0.7"/><stop offset="100%25" style="stop-color:%23a3a380;stop-opacity:0.85"/></linearGradient></defs><path d="M100 300 Q115 235 120 170 Q125 110 110 60 Q100 30 105 10" fill="none" stroke="%235a5d4a" stroke-width="4" opacity="0.7"/><path d="M120 170 Q145 162 160 155 Q170 148 160 138 Q150 133 125 145" fill="url(%23leaf2)"/><path d="M110 125 Q85 118 70 110 Q60 102 70 93 Q80 90 100 100" fill="url(%23leaf2)"/><path d="M110 80 Q135 72 150 65 Q160 58 150 50 Q140 47 115 58" fill="url(%23leaf2)"/></svg>');
     animation-delay: 2.5s;
 }
 
@@ -93,42 +93,42 @@ body::before {
     height: 380px;
     left: 40px;
     bottom: 8%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf3" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23daa520;stop-opacity:0.6"/><stop offset="100%25" style="stop-color:%23b8860b;stop-opacity:0.75"/></linearGradient></defs><path d="M100 300 Q92 230 88 165 Q84 105 95 55 Q100 28 98 8" fill="none" stroke="%23355e35" stroke-width="4" opacity="0.7"/><path d="M88 165 Q65 158 50 150 Q40 142 50 133 Q60 130 80 140" fill="url(%23leaf3)"/><path d="M95 120 Q115 113 130 105 Q140 98 130 90 Q120 87 100 95" fill="url(%23leaf3)"/><path d="M98 70 Q75 64 60 56 Q50 48 60 42 Q70 40 88 50" fill="url(%23leaf3)"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><defs><linearGradient id="leaf3" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23D8A48F;stop-opacity:0.6"/><stop offset="100%25" style="stop-color:%23B88588;stop-opacity:0.75"/></linearGradient></defs><path d="M100 300 Q92 230 88 165 Q84 105 95 55 Q100 28 98 8" fill="none" stroke="%235a5d4a" stroke-width="4" opacity="0.7"/><path d="M88 165 Q65 158 50 150 Q40 142 50 133 Q60 130 80 140" fill="url(%23leaf3)"/><path d="M95 120 Q115 113 130 105 Q140 98 130 90 Q120 87 100 95" fill="url(%23leaf3)"/><path d="M98 70 Q75 64 60 56 Q50 48 60 42 Q70 40 88 50" fill="url(%23leaf3)"/></svg>');
     animation-delay: 5s;
 }
 
 @keyframes gentleSway {
     0%, 100% { 
         transform: translateX(0) translateY(0) rotate(0deg); 
-        filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
+        filter: drop-shadow(0 0 10px rgba(163, 163, 128, 0.3));
     }
     50% { 
         transform: translateX(12px) translateY(-5px) rotate(3deg); 
-        filter: drop-shadow(0 0 15px rgba(0, 191, 165, 0.5));
+        filter: drop-shadow(0 0 15px rgba(163, 163, 128, 0.4));
     }
 }
 
-/* Header Art Nouveau */
+/* Header botanique */
 header {
     position: relative;
     z-index: 10;
     text-align: center;
     padding: 40px 20px;
     background: 
-        linear-gradient(135deg, rgba(0, 191, 165, 0.08) 0%, rgba(218, 165, 32, 0.12) 50%, rgba(0, 139, 139, 0.08) 100%),
-        linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 24, 16, 0.9) 100%);
+        linear-gradient(135deg, rgba(163, 163, 128, 0.08) 0%, rgba(215, 206, 147, 0.12) 50%, rgba(163, 163, 128, 0.08) 100%),
+        linear-gradient(180deg, rgba(58, 61, 47, 0.95) 0%, rgba(74, 74, 58, 0.9) 100%);
     border-bottom: 4px solid transparent;
     border-image: linear-gradient(90deg, 
-        rgba(0, 191, 165, 0.6) 0%, 
-        rgba(218, 165, 32, 0.9) 25%,
-        rgba(255, 140, 0, 0.7) 50%,
-        rgba(218, 165, 32, 0.9) 75%,
-        rgba(64, 224, 208, 0.6) 100%
+        rgba(163, 163, 128, 0.6) 0%, 
+        rgba(215, 206, 147, 0.9) 25%,
+        rgba(216, 164, 143, 0.7) 50%,
+        rgba(215, 206, 147, 0.9) 75%,
+        rgba(163, 163, 128, 0.6) 100%
     ) 1;
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.7),
-        inset 0 -2px 20px rgba(218, 165, 32, 0.2),
-        0 0 40px rgba(0, 191, 165, 0.15);
+        inset 0 -2px 20px rgba(215, 206, 147, 0.15),
+        0 0 40px rgba(163, 163, 128, 0.12);
 }
 
 header::before {
@@ -140,9 +140,9 @@ header::before {
     height: 3px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(0, 191, 165, 0.4) 20%,
-        rgba(218, 165, 32, 0.6) 50%,
-        rgba(0, 191, 165, 0.4) 80%,
+        rgba(163, 163, 128, 0.4) 20%,
+        rgba(215, 206, 147, 0.6) 50%,
+        rgba(163, 163, 128, 0.4) 80%,
         transparent 100%
     );
     animation: headerShimmer 8s ease-in-out infinite;
@@ -156,11 +156,11 @@ header::before {
 header h1 {
     font-size: 3.5em;
     background: linear-gradient(135deg, 
-        #00bf9f 0%, 
-        #DAA520 25%,
-        #FF8C00 50%,
-        #DAA520 75%,
-        #40E0D0 100%
+        #A3A380 0%, 
+        #D7CE93 25%,
+        #EFEBCE 50%,
+        #D7CE93 75%,
+        #D8A48F 100%
     );
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -168,12 +168,12 @@ header h1 {
     background-clip: text;
     animation: gradientShift 10s ease infinite;
     text-shadow: 
-        0 0 20px rgba(218, 165, 32, 0.4),
-        0 0 40px rgba(0, 191, 165, 0.3),
+        0 0 20px rgba(215, 206, 147, 0.3),
+        0 0 40px rgba(163, 163, 128, 0.2),
         3px 3px 8px rgba(0, 0, 0, 0.8);
     letter-spacing: 3px;
     margin-bottom: 15px;
-    filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+    filter: drop-shadow(0 0 10px rgba(215, 206, 147, 0.4));
 }
 
 @keyframes gradientShift {
@@ -190,10 +190,10 @@ header h1 {
 
 .header-btn {
     padding: 12px 24px;
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15), rgba(218, 165, 32, 0.2));
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.15), rgba(215, 206, 147, 0.2));
     border: 2px solid transparent;
-    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.6), rgba(218, 165, 32, 0.8)) 1;
-    color: #DAA520;
+    border-image: linear-gradient(135deg, rgba(163, 163, 128, 0.6), rgba(215, 206, 147, 0.8)) 1;
+    color: #D7CE93;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.05em;
     cursor: pointer;
@@ -210,7 +210,7 @@ header h1 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(215, 206, 147, 0.3), transparent);
     transition: left 0.5s ease;
 }
 
@@ -219,39 +219,39 @@ header h1 {
 }
 
 .header-btn:hover {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.25), rgba(218, 165, 32, 0.35));
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.25), rgba(215, 206, 147, 0.35));
     box-shadow: 
-        0 0 25px rgba(218, 165, 32, 0.5),
-        0 0 15px rgba(0, 191, 165, 0.3);
+        0 0 25px rgba(215, 206, 147, 0.4),
+        0 0 15px rgba(163, 163, 128, 0.3);
     transform: translateY(-3px);
-    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.9), rgba(255, 215, 0, 1)) 1;
+    border-image: linear-gradient(135deg, rgba(163, 163, 128, 0.9), rgba(239, 235, 206, 1)) 1;
 }
 
-/* Bibliothèque Art Nouveau */
+/* Bibliothèque botanique compacte */
 .library-container {
     position: relative;
     z-index: 5;
-    max-width: 1400px;
-    margin: 50px auto;
-    padding: 50px 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 35px 25px;
     background: 
-        radial-gradient(ellipse at top, rgba(0, 191, 165, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at bottom, rgba(218, 165, 32, 0.08) 0%, transparent 70%),
-        linear-gradient(135deg, rgba(69, 49, 33, 0.75) 0%, rgba(92, 64, 51, 0.7) 50%, rgba(69, 49, 33, 0.75) 100%);
-    border-radius: 30px;
+        radial-gradient(ellipse at top, rgba(163, 163, 128, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(215, 206, 147, 0.08) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(69, 69, 53, 0.75) 0%, rgba(82, 74, 61, 0.7) 50%, rgba(69, 69, 53, 0.75) 100%);
+    border-radius: 25px;
     border: 3px solid transparent;
     border-image: linear-gradient(135deg,
-        rgba(0, 191, 165, 0.4) 0%,
-        rgba(218, 165, 32, 0.6) 25%,
-        rgba(255, 140, 0, 0.5) 50%,
-        rgba(218, 165, 32, 0.6) 75%,
-        rgba(64, 224, 208, 0.4) 100%
+        rgba(163, 163, 128, 0.4) 0%,
+        rgba(215, 206, 147, 0.6) 25%,
+        rgba(216, 164, 143, 0.5) 50%,
+        rgba(215, 206, 147, 0.6) 75%,
+        rgba(163, 163, 128, 0.4) 100%
     ) 1;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.8),
-        inset 0 0 60px rgba(0, 0, 0, 0.4),
-        inset 0 0 100px rgba(218, 165, 32, 0.08),
-        0 0 80px rgba(0, 191, 165, 0.15);
+        0 15px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 50px rgba(0, 0, 0, 0.4),
+        inset 0 0 80px rgba(215, 206, 147, 0.06),
+        0 0 60px rgba(163, 163, 128, 0.12);
     backdrop-filter: blur(10px);
 }
 
@@ -263,26 +263,26 @@ header h1 {
     right: -2px;
     bottom: -2px;
     background: linear-gradient(135deg,
-        rgba(0, 191, 165, 0.1) 0%,
-        rgba(218, 165, 32, 0.15) 50%,
-        rgba(0, 191, 165, 0.1) 100%
+        rgba(163, 163, 128, 0.1) 0%,
+        rgba(215, 206, 147, 0.12) 50%,
+        rgba(163, 163, 128, 0.1) 100%
     );
-    border-radius: 30px;
+    border-radius: 25px;
     z-index: -1;
-    opacity: 0.6;
+    opacity: 0.5;
     animation: containerGlow 8s ease-in-out infinite;
 }
 
 @keyframes containerGlow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.7; }
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
 }
 
-/* Étagère Art Nouveau */
+/* Étagère botanique compacte */
 .shelf {
     position: relative;
-    margin-bottom: 70px;
-    padding: 25px 0;
+    margin-bottom: 55px;
+    padding: 20px 0;
 }
 
 .shelf::before {
@@ -294,52 +294,52 @@ header h1 {
     height: 2px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(0, 191, 165, 0.3) 20%,
-        rgba(218, 165, 32, 0.5) 50%,
-        rgba(0, 191, 165, 0.3) 80%,
+        rgba(163, 163, 128, 0.3) 20%,
+        rgba(215, 206, 147, 0.5) 50%,
+        rgba(163, 163, 128, 0.3) 80%,
         transparent 100%
     );
 }
 
 .shelf-label {
     position: absolute;
-    left: -90px;
+    left: -85px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.4em;
-    background: linear-gradient(135deg, #00bf9f, #DAA520, #FF8C00);
+    font-size: 1.35em;
+    background: linear-gradient(135deg, #A3A380, #D7CE93, #D8A48F);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: bold;
-    text-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
-    filter: drop-shadow(0 0 8px rgba(0, 191, 165, 0.3));
+    text-shadow: 0 0 12px rgba(215, 206, 147, 0.3);
+    filter: drop-shadow(0 0 6px rgba(163, 163, 128, 0.3));
     letter-spacing: 1px;
 }
 
 .add-book-btn {
     position: absolute;
-    left: 15px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     background: 
-        radial-gradient(circle, rgba(218, 165, 32, 0.4) 0%, rgba(0, 191, 165, 0.3) 100%),
-        linear-gradient(135deg, rgba(218, 165, 32, 0.25), rgba(0, 191, 165, 0.2));
+        radial-gradient(circle, rgba(215, 206, 147, 0.4) 0%, rgba(163, 163, 128, 0.3) 100%),
+        linear-gradient(135deg, rgba(215, 206, 147, 0.25), rgba(163, 163, 128, 0.2));
     border: 3px solid transparent;
-    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(218, 165, 32, 0.9)) 1;
-    color: #FFD700;
-    font-size: 2.2em;
+    border-image: linear-gradient(135deg, rgba(163, 163, 128, 0.7), rgba(215, 206, 147, 0.9)) 1;
+    color: #EFEBCE;
+    font-size: 2.1em;
     font-weight: bold;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10;
     box-shadow: 
-        0 6px 20px rgba(218, 165, 32, 0.4),
-        inset 0 0 20px rgba(218, 165, 32, 0.2),
-        0 0 30px rgba(0, 191, 165, 0.3);
+        0 5px 18px rgba(215, 206, 147, 0.3),
+        inset 0 0 18px rgba(215, 206, 147, 0.15),
+        0 0 25px rgba(163, 163, 128, 0.25);
     position: relative;
     overflow: hidden;
 }
@@ -352,33 +352,33 @@ header h1 {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+    background: radial-gradient(circle, rgba(239, 235, 206, 0.4), transparent);
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
 }
 
 .add-book-btn:hover::before {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 
 .add-book-btn:hover {
     background: 
-        radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(0, 191, 165, 0.4) 100%),
-        linear-gradient(135deg, rgba(218, 165, 32, 0.4), rgba(0, 191, 165, 0.35));
+        radial-gradient(circle, rgba(239, 235, 206, 0.5) 0%, rgba(163, 163, 128, 0.4) 100%),
+        linear-gradient(135deg, rgba(215, 206, 147, 0.4), rgba(163, 163, 128, 0.35));
     box-shadow: 
-        0 0 35px rgba(218, 165, 32, 0.7),
-        0 0 20px rgba(0, 191, 165, 0.5),
-        inset 0 0 25px rgba(255, 215, 0, 0.3);
-    transform: translateY(-50%) scale(1.15) rotate(90deg);
-    border-image: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(0, 191, 165, 0.9)) 1;
+        0 0 32px rgba(215, 206, 147, 0.6),
+        0 0 18px rgba(163, 163, 128, 0.4),
+        inset 0 0 22px rgba(239, 235, 206, 0.25);
+    transform: translateY(-50%) scale(1.12) rotate(90deg);
+    border-image: linear-gradient(135deg, rgba(239, 235, 206, 1), rgba(163, 163, 128, 0.9)) 1;
 }
 
 .books-container {
     display: flex;
-    gap: 18px;
-    padding: 0 90px;
-    min-height: 190px;
+    gap: 14px;
+    padding: 0 85px;
+    min-height: 170px;
     align-items: flex-end;
     flex-wrap: wrap;
 }
@@ -388,22 +388,22 @@ header h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 18px;
+    height: 16px;
     background: 
-        linear-gradient(180deg, rgba(92, 64, 51, 0.9) 0%, rgba(62, 39, 35, 0.95) 100%);
+        linear-gradient(180deg, rgba(82, 74, 61, 0.9) 0%, rgba(62, 55, 45, 0.95) 100%);
     border-radius: 4px;
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.6),
-        inset 0 2px 4px rgba(218, 165, 32, 0.15),
-        inset 0 -2px 8px rgba(0, 0, 0, 0.4);
-    border-top: 1px solid rgba(218, 165, 32, 0.3);
+        0 5px 10px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(215, 206, 147, 0.12),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(215, 206, 147, 0.25);
 }
 
-/* Livres Art Nouveau luxueux */
+/* Livres botaniques - vue de profil (tranche visible) */
 .book {
     position: relative;
-    width: 130px;
-    height: 170px;
+    width: 45px;
+    height: 160px;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: bottom center;
@@ -413,33 +413,33 @@ header h1 {
 @keyframes bookAppear {
     0% {
         opacity: 0;
-        transform: scale(0.7) translateY(30px) rotateY(-20deg);
+        transform: scale(0.7) translateY(30px) rotateX(-10deg);
     }
     100% {
         opacity: 1;
-        transform: scale(1) translateY(0) rotateY(0deg);
+        transform: scale(1) translateY(0) rotateX(0deg);
     }
 }
 
 .book:hover {
-    transform: translateY(-15px) scale(1.08);
+    transform: translateY(-12px) scale(1.05);
     filter: 
-        drop-shadow(0 0 30px rgba(218, 165, 32, 0.7))
-        drop-shadow(0 0 20px rgba(0, 191, 165, 0.5));
+        drop-shadow(0 0 25px rgba(215, 206, 147, 0.6))
+        drop-shadow(0 0 15px rgba(163, 163, 128, 0.4));
     z-index: 10;
 }
 
 .book-spine {
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
     position: relative;
     box-shadow: 
-        6px 6px 18px rgba(0, 0, 0, 0.6),
-        -2px -2px 10px rgba(0, 0, 0, 0.3),
-        inset 0 0 30px rgba(0, 0, 0, 0.3),
-        inset 2px 2px 8px rgba(218, 165, 32, 0.15);
-    border: 2px solid rgba(218, 165, 32, 0.5);
+        4px 4px 16px rgba(0, 0, 0, 0.6),
+        -1px -1px 8px rgba(0, 0, 0, 0.3),
+        inset 0 0 25px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 6px rgba(215, 206, 147, 0.12);
+    border: 1.5px solid rgba(215, 206, 147, 0.4);
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -452,7 +452,7 @@ header h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.4;
+    opacity: 0.5;
     z-index: 1;
 }
 
@@ -465,9 +465,9 @@ header h1 {
     height: 100%;
     background: linear-gradient(165deg,
         transparent 0%,
-        rgba(218, 165, 32, 0.1) 30%,
+        rgba(215, 206, 147, 0.08) 30%,
         transparent 50%,
-        rgba(0, 191, 165, 0.08) 70%,
+        rgba(163, 163, 128, 0.06) 70%,
         transparent 100%
     );
     z-index: 2;
@@ -475,8 +475,8 @@ header h1 {
 }
 
 @keyframes bookShimmer {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.7; }
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.6; }
 }
 
 .book-title {
@@ -484,92 +484,98 @@ header h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    color: #FFD700;
-    font-size: 0.95em;
+    color: #EFEBCE;
+    font-size: 0.75em;
     font-weight: bold;
     text-shadow: 
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(218, 165, 32, 0.6),
-        0 0 5px rgba(0, 191, 165, 0.4),
-        1px 1px 3px rgba(0, 0, 0, 1);
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(215, 206, 147, 0.5),
+        0 0 3px rgba(163, 163, 128, 0.4),
+        1px 1px 2px rgba(0, 0, 0, 1);
     white-space: nowrap;
-    max-width: 150px;
+    max-width: 140px;
     overflow: hidden;
     text-overflow: ellipsis;
     z-index: 3;
-    letter-spacing: 1px;
-    filter: drop-shadow(0 0 3px rgba(218, 165, 32, 0.8));
+    letter-spacing: 0.8px;
+    filter: drop-shadow(0 0 2px rgba(215, 206, 147, 0.7));
 }
 
-/* Styles de livres Art Nouveau - Très distincts */
+/* Styles de livres botaniques - Gravures délicates inspirées de livres anciens */
 
-/* 1. Fleurs dorées - Turquoise avec fleurs d'or */
+/* 1. Olive Petal - Vert olive avec fleurs gravées */
 .book-spine.fleurs-dorees {
-    background: linear-gradient(135deg, #008B8B 0%, #00CED1 50%, #008B8B 100%);
+    background: linear-gradient(to right, #9a9a78 0%, #A3A380 50%, #9a9a78 100%);
 }
 
 .book-spine.fleurs-dorees::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke="%23DAA520" stroke-width="1.5" opacity="0.7"><circle cx="30" cy="25" r="8"/><circle cx="25" cy="25" r="3"/><circle cx="35" cy="25" r="3"/><circle cx="30" cy="20" r="3"/><circle cx="30" cy="30" r="3"/><circle cx="70" cy="50" r="8"/><circle cx="65" cy="50" r="3"/><circle cx="75" cy="50" r="3"/><circle cx="70" cy="45" r="3"/><circle cx="70" cy="55" r="3"/><circle cx="40" cy="75" r="8"/><circle cx="35" cy="75" r="3"/><circle cx="45" cy="75" r="3"/><circle cx="40" cy="70" r="3"/><circle cx="40" cy="80" r="3"/></g><path d="M30 25 L70 50 M70 50 L40 75" stroke="%23DAA520" stroke-width="0.8" opacity="0.4"/></svg>');
-    background-size: 80px 80px;
-    opacity: 0.6;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="none" stroke="%23EFEBCE" stroke-width="0.6" opacity="0.7"><circle cx="25" cy="40" r="6"/><path d="M19 40 Q19 34 25 34 Q31 34 31 40" fill="%23EFEBCE" opacity="0.3"/><circle cx="25" cy="100" r="6"/><path d="M19 100 Q19 94 25 94 Q31 94 31 100" fill="%23EFEBCE" opacity="0.3"/><circle cx="25" cy="160" r="6"/><path d="M19 160 Q19 154 25 154 Q31 154 31 160" fill="%23EFEBCE" opacity="0.3"/><line x1="25" y1="46" x2="25" y2="94" stroke="%23EFEBCE" stroke-width="0.5" opacity="0.4"/><line x1="25" y1="106" x2="25" y2="154" stroke="%23EFEBCE" stroke-width="0.5" opacity="0.4"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
+    opacity: 0.7;
 }
 
-/* 2. Dorures élégantes - Bordeaux avec lignes d'or */
+/* 2. Golden Clover - Doré pâle avec feuilles de trèfle */
 .book-spine.dorures-elegantes {
-    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 50%, #8B0000 100%);
+    background: linear-gradient(to right, #c9c087 0%, #D7CE93 50%, #c9c087 100%);
 }
 
 .book-spine.dorures-elegantes::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%23FFD700" fill="none" stroke-width="1.5" opacity="0.8"><path d="M10 20 Q50 10 90 20"/><path d="M10 50 Q50 40 90 50"/><path d="M10 80 Q50 70 90 80"/><rect x="15" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="48" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="81" y="15" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="15" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="48" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/><rect x="81" y="45" width="4" height="10" fill="%23DAA520" opacity="0.6"/></g></svg>');
-    background-size: 90px 90px;
-    opacity: 0.65;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="%23A3A380" opacity="0.65"><ellipse cx="25" cy="35" rx="3" ry="5" transform="rotate(0 25 35)"/><ellipse cx="20" cy="38" rx="3" ry="5" transform="rotate(-45 20 38)"/><ellipse cx="30" cy="38" rx="3" ry="5" transform="rotate(45 30 38)"/><ellipse cx="25" cy="105" rx="3" ry="5" transform="rotate(0 25 105)"/><ellipse cx="20" cy="108" rx="3" ry="5" transform="rotate(-45 20 108)"/><ellipse cx="30" cy="108" rx="3" ry="5" transform="rotate(45 30 108)"/><ellipse cx="25" cy="165" rx="3" ry="5" transform="rotate(0 25 165)"/><ellipse cx="20" cy="168" rx="3" ry="5" transform="rotate(-45 20 168)"/><ellipse cx="30" cy="168" rx="3" ry="5" transform="rotate(45 30 168)"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
+    opacity: 0.7;
 }
 
-/* 3. Arabesque - Vert émeraude avec motifs courbes */
+/* 3. Peach Blossom - Rose pêche avec fleurs délicates */
 .book-spine.arabesque {
-    background: linear-gradient(135deg, #2F4F4F 0%, #3CB371 50%, #2F4F4F 100%);
+    background: linear-gradient(to right, #a87a7b 0%, #B88588 50%, #a87a7b 100%);
 }
 
 .book-spine.arabesque::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke="%23DAA520" stroke-width="1.8" opacity="0.75"><path d="M50 10 Q30 30 50 50 Q70 70 50 90"/><path d="M50 10 Q70 30 50 50 Q30 70 50 90"/><circle cx="50" cy="50" r="12" stroke="%23FFD700" stroke-width="1"/><circle cx="50" cy="50" r="8" stroke="%2300CED1" stroke-width="0.8" opacity="0.5"/><path d="M35 35 Q50 40 65 35" stroke="%23FFD700" opacity="0.6"/><path d="M35 65 Q50 60 65 65" stroke="%23FFD700" opacity="0.6"/></g></svg>');
-    background-size: 75px 75px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="none" stroke="%23EFEBCE" stroke-width="0.6" opacity="0.75"><circle cx="25" cy="50" r="7"/><circle cx="25" cy="50" r="3.5"/><path d="M18 50 L20 47 M32 50 L30 47 M25 43 L25 40 M25 57 L25 60" stroke-width="0.5"/><circle cx="25" cy="120" r="7"/><circle cx="25" cy="120" r="3.5"/><path d="M18 120 L20 117 M32 120 L30 117 M25 113 L25 110 M25 127 L25 130" stroke-width="0.5"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
     opacity: 0.7;
 }
 
-/* 4. Géométrique - Bleu nuit avec formes Art Déco */
+/* 4. Rose Blush - Rose poudré avec arabesques */
 .book-spine.geometrique {
-    background: linear-gradient(135deg, #191970 0%, #4169E1 50%, #191970 100%);
+    background: linear-gradient(to right, #c29681 0%, #D8A48F 50%, #c29681 100%);
 }
 
 .book-spine.geometrique::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="%23DAA520" opacity="0.7"><polygon points="50,15 55,25 65,25 57,32 60,42 50,36 40,42 43,32 35,25 45,25"/><polygon points="25,50 30,60 40,60 32,67 35,77 25,71 15,77 18,67 10,60 20,60"/><polygon points="75,50 80,60 90,60 82,67 85,77 75,71 65,77 68,67 60,60 70,60"/></g><rect x="20" y="20" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="65" y="20" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="20" y="77" width="15" height="3" fill="%23FFD700" opacity="0.5"/><rect x="65" y="77" width="15" height="3" fill="%23FFD700" opacity="0.5"/></svg>');
-    background-size: 85px 85px;
-    opacity: 0.68;
-}
-
-/* 5. Classique - Noir avec bordures d'or */
-.book-spine.classique {
-    background: linear-gradient(135deg, #1C1C1C 0%, #2F2F2F 50%, #1C1C1C 100%);
-}
-
-.book-spine.classique::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%23DAA520" fill="none" stroke-width="2" opacity="0.8"><rect x="10" y="10" width="80" height="80"/><rect x="15" y="15" width="70" height="70" stroke="%23FFD700"/><line x1="50" y1="10" x2="50" y2="25" stroke="%23DAA520" stroke-width="1.5"/><line x1="50" y1="75" x2="50" y2="90" stroke="%23DAA520" stroke-width="1.5"/><line x1="10" y1="50" x2="25" y2="50" stroke="%23DAA520" stroke-width="1.5"/><line x1="75" y1="50" x2="90" y2="50" stroke="%23DAA520" stroke-width="1.5"/></g><circle cx="50" cy="50" r="8" fill="%23FFD700" opacity="0.4"/></svg>');
-    background-size: 100px 100px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="none" stroke="%23EFEBCE" stroke-width="0.6" opacity="0.7"><path d="M25 30 Q20 40 25 50 Q30 60 25 70"/><path d="M25 30 Q30 40 25 50 Q20 60 25 70"/><path d="M25 110 Q20 120 25 130 Q30 140 25 150"/><path d="M25 110 Q30 120 25 130 Q20 140 25 150"/><circle cx="25" cy="50" r="5" opacity="0.4" fill="%23EFEBCE"/><circle cx="25" cy="130" r="5" opacity="0.4" fill="%23EFEBCE"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
     opacity: 0.7;
 }
 
-/* 6. Jardin botanique - Vert olive avec feuilles */
+/* 5. Artic Daisy - Crème avec marguerites */
+.book-spine.classique {
+    background: linear-gradient(to right, #e5e1c0 0%, #EFEBCE 50%, #e5e1c0 100%);
+}
+
+.book-spine.classique::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="none" stroke="%23A3A380" stroke-width="0.6" opacity="0.8"><circle cx="25" cy="45" r="6"/><line x1="25" y1="39" x2="25" y2="35"/><line x1="25" y1="51" x2="25" y2="55"/><line x1="19" y1="45" x2="15" y2="45"/><line x1="31" y1="45" x2="35" y2="45"/><circle cx="25" cy="115" r="6"/><line x1="25" y1="109" x2="25" y2="105"/><line x1="25" y1="121" x2="25" y2="125"/><line x1="19" y1="115" x2="15" y2="115"/><line x1="31" y1="115" x2="35" y2="115"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
+    opacity: 0.75;
+}
+
+/* 6. Violet botanique - Mauve avec lierre */
 .book-spine.botanique {
-    background: linear-gradient(135deg, #556B2F 0%, #6B8E23 50%, #556B2F 100%);
+    background: linear-gradient(to right, #8b7a8e 0%, #9d8ba0 50%, #8b7a8e 100%);
 }
 
 .book-spine.botanique::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="%23DAA520" opacity="0.7"><ellipse cx="30" cy="25" rx="8" ry="15" transform="rotate(30 30 25)"/><ellipse cx="70" cy="35" rx="8" ry="15" transform="rotate(-45 70 35)"/><ellipse cx="50" cy="55" rx="8" ry="15" transform="rotate(15 50 55)"/><ellipse cx="25" cy="70" rx="8" ry="15" transform="rotate(-30 25 70)"/><ellipse cx="75" cy="75" rx="8" ry="15" transform="rotate(60 75 75)"/></g><path d="M30 25 Q50 40 50 55 M50 55 Q35 60 25 70 M50 55 Q65 60 75 75 M50 55 Q60 45 70 35" stroke="%2300CED1" stroke-width="1.2" fill="none" opacity="0.5"/><g fill="%23FFD700" opacity="0.5"><circle cx="30" cy="25" r="2"/><circle cx="70" cy="35" r="2"/><circle cx="50" cy="55" r="2.5"/><circle cx="25" cy="70" r="2"/><circle cx="75" cy="75" r="2"/></g></svg>');
-    background-size: 80px 80px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 200"><g fill="%23EFEBCE" opacity="0.7"><path d="M25 10 Q23 25 20 35 Q22 40 25 42 Q28 40 30 35 Q27 25 25 10" opacity="0.6"/><ellipse cx="20" cy="25" rx="3" ry="4" transform="rotate(-30 20 25)"/><ellipse cx="30" cy="30" rx="3" ry="4" transform="rotate(30 30 30)"/><path d="M25 50 Q23 65 20 75 Q22 80 25 82 Q28 80 30 75 Q27 65 25 50" opacity="0.6"/><ellipse cx="20" cy="65" rx="3" ry="4" transform="rotate(-30 20 65)"/><ellipse cx="30" cy="70" rx="3" ry="4" transform="rotate(30 30 70)"/><path d="M25 90 Q23 105 20 115 Q22 120 25 122 Q28 120 30 115 Q27 105 25 90" opacity="0.6"/><ellipse cx="20" cy="105" rx="3" ry="4" transform="rotate(-30 20 105)"/><ellipse cx="30" cy="110" rx="3" ry="4" transform="rotate(30 30 110)"/></g></svg>');
+    background-size: 50px 200px;
+    background-repeat: repeat-y;
     opacity: 0.65;
 }
 
-/* Modal Art Nouveau */
+/* Modal botanique */
 .modal {
     display: none;
     position: fixed;
@@ -578,7 +584,7 @@ header h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(12px);
     animation: fadeIn 0.3s ease;
 }
@@ -602,16 +608,16 @@ header h1 {
 
 .modal-content {
     background: 
-        radial-gradient(ellipse at top left, rgba(0, 191, 165, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(218, 165, 32, 0.1) 0%, transparent 60%),
-        linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(42, 24, 16, 0.96) 50%, rgba(26, 26, 26, 0.98) 100%);
+        radial-gradient(ellipse at top left, rgba(163, 163, 128, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(215, 206, 147, 0.1) 0%, transparent 60%),
+        linear-gradient(135deg, rgba(58, 61, 47, 0.98) 0%, rgba(74, 74, 58, 0.96) 50%, rgba(58, 61, 47, 0.98) 100%);
     border: 4px solid transparent;
     border-image: linear-gradient(135deg,
-        rgba(0, 191, 165, 0.6) 0%,
-        rgba(218, 165, 32, 0.8) 25%,
-        rgba(255, 140, 0, 0.7) 50%,
-        rgba(218, 165, 32, 0.8) 75%,
-        rgba(64, 224, 208, 0.6) 100%
+        rgba(163, 163, 128, 0.6) 0%,
+        rgba(215, 206, 147, 0.8) 25%,
+        rgba(216, 164, 143, 0.7) 50%,
+        rgba(215, 206, 147, 0.8) 75%,
+        rgba(163, 163, 128, 0.6) 100%
     ) 1;
     border-radius: 20px;
     width: 90%;
@@ -620,8 +626,8 @@ header h1 {
     overflow: hidden;
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.9),
-        0 0 60px rgba(218, 165, 32, 0.4),
-        0 0 40px rgba(0, 191, 165, 0.3),
+        0 0 60px rgba(215, 206, 147, 0.3),
+        0 0 40px rgba(163, 163, 128, 0.25),
         inset 0 0 80px rgba(0, 0, 0, 0.5);
     animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -635,15 +641,15 @@ header h1 {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 30%, rgba(0, 191, 165, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 20% 30%, rgba(163, 163, 128, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(215, 206, 147, 0.05) 0%, transparent 40%);
     pointer-events: none;
     animation: modalGlow 6s ease-in-out infinite;
 }
 
 @keyframes modalGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.8; }
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
 }
 
 .modal-content.card-view {
@@ -664,13 +670,13 @@ header h1 {
 .modal-header {
     padding: 30px 35px;
     background: 
-        linear-gradient(135deg, rgba(0, 191, 165, 0.12) 0%, rgba(218, 165, 32, 0.15) 100%),
+        linear-gradient(135deg, rgba(163, 163, 128, 0.12) 0%, rgba(215, 206, 147, 0.15) 100%),
         rgba(0, 0, 0, 0.3);
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(90deg,
-        rgba(0, 191, 165, 0.5) 0%,
-        rgba(218, 165, 32, 0.7) 50%,
-        rgba(0, 191, 165, 0.5) 100%
+        rgba(163, 163, 128, 0.5) 0%,
+        rgba(215, 206, 147, 0.7) 50%,
+        rgba(163, 163, 128, 0.5) 100%
     ) 1;
     display: flex;
     justify-content: space-between;
@@ -687,36 +693,36 @@ header h1 {
     height: 2px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(218, 165, 32, 0.4) 20%,
-        rgba(0, 191, 165, 0.6) 50%,
-        rgba(218, 165, 32, 0.4) 80%,
+        rgba(215, 206, 147, 0.4) 20%,
+        rgba(163, 163, 128, 0.6) 50%,
+        rgba(215, 206, 147, 0.4) 80%,
         transparent 100%
     );
     animation: headerShine 4s ease-in-out infinite;
 }
 
 @keyframes headerShine {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
 }
 
 .modal-header h2 {
-    background: linear-gradient(135deg, #00bf9f, #DAA520, #FF8C00);
+    background: linear-gradient(135deg, #A3A380, #D7CE93, #D8A48F);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-size: 2em;
-    text-shadow: 0 0 20px rgba(218, 165, 32, 0.4);
-    filter: drop-shadow(0 0 10px rgba(0, 191, 165, 0.3));
+    text-shadow: 0 0 20px rgba(215, 206, 147, 0.3);
+    filter: drop-shadow(0 0 10px rgba(163, 163, 128, 0.3));
 }
 
 .close-btn {
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), rgba(0, 191, 165, 0.15));
-    border: 2px solid rgba(218, 165, 32, 0.5);
+    background: linear-gradient(135deg, rgba(215, 206, 147, 0.2), rgba(163, 163, 128, 0.15));
+    border: 2px solid rgba(215, 206, 147, 0.5);
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    color: #FFD700;
+    color: #EFEBCE;
     font-size: 1.8em;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -727,13 +733,13 @@ header h1 {
 }
 
 .close-btn:hover {
-    background: linear-gradient(135deg, rgba(218, 165, 32, 0.4), rgba(0, 191, 165, 0.3));
-    border-color: #FFD700;
+    background: linear-gradient(135deg, rgba(215, 206, 147, 0.4), rgba(163, 163, 128, 0.3));
+    border-color: #EFEBCE;
     color: #FFF;
     transform: rotate(90deg) scale(1.1);
     box-shadow: 
-        0 0 25px rgba(218, 165, 32, 0.8),
-        0 0 15px rgba(0, 191, 165, 0.6);
+        0 0 25px rgba(215, 206, 147, 0.7),
+        0 0 15px rgba(163, 163, 128, 0.5);
 }
 
 .modal-body {
@@ -751,18 +757,18 @@ header h1 {
 .modal-body::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    border: 1px solid rgba(218, 165, 32, 0.2);
+    border: 1px solid rgba(215, 206, 147, 0.2);
 }
 
 .modal-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.5), rgba(218, 165, 32, 0.6));
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.5), rgba(215, 206, 147, 0.6));
     border-radius: 10px;
-    border: 1px solid rgba(218, 165, 32, 0.4);
+    border: 1px solid rgba(215, 206, 147, 0.4);
 }
 
 .modal-body::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(218, 165, 32, 0.8));
-    box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.7), rgba(215, 206, 147, 0.8));
+    box-shadow: 0 0 10px rgba(215, 206, 147, 0.4);
 }
 
 .form-group {
@@ -771,14 +777,14 @@ header h1 {
 
 .form-group label {
     display: block;
-    background: linear-gradient(135deg, #00bf9f, #DAA520);
+    background: linear-gradient(135deg, #A3A380, #D7CE93);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-size: 1.15em;
     margin-bottom: 12px;
     font-weight: bold;
-    filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.3));
+    filter: drop-shadow(0 0 6px rgba(215, 206, 147, 0.25));
 }
 
 .form-group input[type="text"],
@@ -786,9 +792,9 @@ header h1 {
     width: 100%;
     padding: 14px;
     background: rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(218, 165, 32, 0.4);
+    border: 2px solid rgba(215, 206, 147, 0.4);
     border-radius: 10px;
-    color: #f5f5dc;
+    color: #EFEBCE;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.05em;
     transition: all 0.4s ease;
@@ -798,10 +804,10 @@ header h1 {
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: rgba(0, 191, 165, 0.7);
+    border-color: rgba(163, 163, 128, 0.7);
     box-shadow: 
-        0 0 20px rgba(0, 191, 165, 0.4),
-        0 0 10px rgba(218, 165, 32, 0.3),
+        0 0 20px rgba(163, 163, 128, 0.3),
+        0 0 10px rgba(215, 206, 147, 0.25),
         inset 0 2px 8px rgba(0, 0, 0, 0.4);
     background: rgba(0, 0, 0, 0.5);
 }
@@ -829,26 +835,26 @@ header h1 {
 }
 
 .style-option:hover {
-    border-color: rgba(0, 191, 165, 0.5);
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.1), rgba(218, 165, 32, 0.15));
-    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+    border-color: rgba(163, 163, 128, 0.5);
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.1), rgba(215, 206, 147, 0.15));
+    box-shadow: 0 0 15px rgba(215, 206, 147, 0.25);
     transform: translateY(-2px);
 }
 
 .style-option.selected {
-    border-color: rgba(218, 165, 32, 0.8);
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.2), rgba(218, 165, 32, 0.25));
+    border-color: rgba(215, 206, 147, 0.8);
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.2), rgba(215, 206, 147, 0.25));
     box-shadow: 
-        0 0 25px rgba(218, 165, 32, 0.5),
-        0 0 15px rgba(0, 191, 165, 0.4);
+        0 0 25px rgba(215, 206, 147, 0.4),
+        0 0 15px rgba(163, 163, 128, 0.3);
 }
 
 .style-preview {
-    width: 85px;
-    height: 110px;
+    width: 40px;
+    height: 100px;
     margin: 0 auto 12px;
-    border-radius: 6px;
-    border: 2px solid rgba(218, 165, 32, 0.5);
+    border-radius: 4px;
+    border: 1.5px solid rgba(215, 206, 147, 0.5);
     box-shadow: 
         3px 3px 10px rgba(0, 0, 0, 0.5),
         inset 0 0 15px rgba(0, 0, 0, 0.3);
@@ -856,7 +862,7 @@ header h1 {
 
 .style-option span {
     display: block;
-    color: #f5f5dc;
+    color: #EFEBCE;
     font-size: 0.95em;
 }
 
@@ -879,17 +885,17 @@ header h1 {
 
 .color-btn:hover {
     transform: scale(1.12);
-    border-color: rgba(0, 191, 165, 0.6);
+    border-color: rgba(163, 163, 128, 0.6);
     box-shadow: 
-        0 0 20px rgba(218, 165, 32, 0.5),
+        0 0 20px rgba(215, 206, 147, 0.4),
         3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .color-btn.selected {
-    border-color: rgba(218, 165, 32, 0.9);
+    border-color: rgba(215, 206, 147, 0.9);
     box-shadow: 
-        0 0 30px rgba(218, 165, 32, 0.7),
-        0 0 15px rgba(0, 191, 165, 0.5);
+        0 0 30px rgba(215, 206, 147, 0.6),
+        0 0 15px rgba(163, 163, 128, 0.4);
     transform: scale(1.2);
 }
 
@@ -897,13 +903,13 @@ header h1 {
 .modal-footer {
     padding: 25px 35px;
     background: 
-        linear-gradient(135deg, rgba(0, 191, 165, 0.08) 0%, rgba(218, 165, 32, 0.1) 100%),
+        linear-gradient(135deg, rgba(163, 163, 128, 0.08) 0%, rgba(215, 206, 147, 0.1) 100%),
         rgba(0, 0, 0, 0.4);
     border-top: 3px solid transparent;
     border-image: linear-gradient(90deg,
-        rgba(0, 191, 165, 0.4) 0%,
-        rgba(218, 165, 32, 0.6) 50%,
-        rgba(0, 191, 165, 0.4) 100%
+        rgba(163, 163, 128, 0.4) 0%,
+        rgba(215, 206, 147, 0.6) 50%,
+        rgba(163, 163, 128, 0.4) 100%
     ) 1;
     display: flex;
     gap: 15px;
@@ -923,35 +929,35 @@ header h1 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.5), rgba(218, 165, 32, 0.7));
-    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.8), rgba(218, 165, 32, 0.9)) 1;
-    color: #1a1a1a;
-    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.5), rgba(215, 206, 147, 0.7));
+    border-image: linear-gradient(135deg, rgba(163, 163, 128, 0.8), rgba(215, 206, 147, 0.9)) 1;
+    color: #3a3d2f;
+    box-shadow: 0 4px 15px rgba(215, 206, 147, 0.3);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.7), rgba(255, 215, 0, 0.9));
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.7), rgba(239, 235, 206, 0.9));
     box-shadow: 
-        0 0 30px rgba(218, 165, 32, 0.7),
-        0 0 15px rgba(0, 191, 165, 0.5);
+        0 0 30px rgba(215, 206, 147, 0.6),
+        0 0 15px rgba(163, 163, 128, 0.4);
     transform: translateY(-3px);
 }
 
 .btn-secondary {
     background: rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(218, 165, 32, 0.4);
-    color: #f5f5dc;
+    border: 2px solid rgba(215, 206, 147, 0.4);
+    color: #EFEBCE;
 }
 
 .btn-secondary:hover {
     background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(0, 191, 165, 0.6);
-    box-shadow: 0 0 15px rgba(0, 191, 165, 0.3);
+    border-color: rgba(163, 163, 128, 0.6);
+    box-shadow: 0 0 15px rgba(163, 163, 128, 0.3);
 }
 
 /* Contenu de la fiche */
 .card-content {
-    color: #f5f5dc;
+    color: #EFEBCE;
     line-height: 1.9;
     white-space: pre-wrap;
     font-size: 1.08em;
@@ -963,9 +969,9 @@ header h1 {
     min-height: 320px;
     padding: 16px;
     background: rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(218, 165, 32, 0.4);
+    border: 2px solid rgba(215, 206, 147, 0.4);
     border-radius: 10px;
-    color: #f5f5dc;
+    color: #EFEBCE;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.05em;
     resize: vertical;
@@ -974,10 +980,10 @@ header h1 {
 
 .card-content-edit:focus {
     outline: none;
-    border-color: rgba(0, 191, 165, 0.7);
+    border-color: rgba(163, 163, 128, 0.7);
     box-shadow: 
-        0 0 20px rgba(0, 191, 165, 0.4),
-        0 0 10px rgba(218, 165, 32, 0.3),
+        0 0 20px rgba(163, 163, 128, 0.3),
+        0 0 10px rgba(215, 206, 147, 0.25),
         inset 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
@@ -988,10 +994,10 @@ header h1 {
 
 .toolbar-btn {
     padding: 12px 22px;
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15), rgba(218, 165, 32, 0.2));
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.15), rgba(215, 206, 147, 0.2));
     border: 2px solid transparent;
-    border-image: linear-gradient(135deg, rgba(0, 191, 165, 0.6), rgba(218, 165, 32, 0.7)) 1;
-    color: #DAA520;
+    border-image: linear-gradient(135deg, rgba(163, 163, 128, 0.6), rgba(215, 206, 147, 0.7)) 1;
+    color: #D7CE93;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.05em;
     cursor: pointer;
@@ -1000,20 +1006,20 @@ header h1 {
 }
 
 .toolbar-btn:hover {
-    background: linear-gradient(135deg, rgba(0, 191, 165, 0.25), rgba(218, 165, 32, 0.35));
-    box-shadow: 0 0 20px rgba(218, 165, 32, 0.5);
+    background: linear-gradient(135deg, rgba(163, 163, 128, 0.25), rgba(215, 206, 147, 0.35));
+    box-shadow: 0 0 20px rgba(215, 206, 147, 0.4);
     transform: translateY(-2px);
 }
 
 .toolbar-btn.delete {
-    border-image: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(218, 165, 32, 0.5)) 1;
+    border-image: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(215, 206, 147, 0.5)) 1;
 }
 
 .toolbar-btn.delete:hover {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(218, 165, 32, 0.2));
-    border-image: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(218, 165, 32, 0.6)) 1;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(215, 206, 147, 0.2));
+    border-image: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(215, 206, 147, 0.6)) 1;
     color: #ff6b6b;
-    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
 }
 
 .edit-actions {
@@ -1042,18 +1048,19 @@ header h1 {
     }
 
     .add-book-btn:hover {
-        transform: translateX(-50%) scale(1.15) rotate(90deg);
+        transform: translateX(-50%) scale(1.12) rotate(90deg);
     }
 
     .books-container {
         padding: 45px 20px 0;
         justify-content: center;
-        min-height: 160px;
+        min-height: 150px;
+        gap: 12px;
     }
 
     .book {
-        width: 110px;
-        height: 150px;
+        width: 40px;
+        height: 140px;
     }
 
     .book-styles {
@@ -1061,13 +1068,19 @@ header h1 {
         gap: 15px;
     }
 
+    .style-preview {
+        width: 35px;
+        height: 90px;
+    }
+
     .plants-decoration {
         opacity: 0.25;
     }
 
     .library-container {
-        padding: 40px 20px;
+        padding: 30px 18px;
         margin: 30px auto;
+        max-width: 95%;
     }
 
     .modal-content {
